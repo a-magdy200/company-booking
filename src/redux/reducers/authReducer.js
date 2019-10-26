@@ -1,7 +1,10 @@
 import {
     INPUT_UPDATE,
     LOGIN,
-    SIGNUP
+    SIGNUP,
+    LOGIN_ERRORS,
+    SIGNUP_ERRORS,
+    LOADING
 } from "../types";
 import axios from 'axios';
 const INITIAL_STATE = {
@@ -12,6 +15,9 @@ const INITIAL_STATE = {
     signup_confirm_password: '',
     first_name: '',
     last_name: '',
+    login_errors: [],
+    signup_errors: [],
+    loading: false
 };
 export default (state = INITIAL_STATE, action) => {
     const {type} = action;
@@ -21,12 +27,21 @@ export default (state = INITIAL_STATE, action) => {
             const {name, value} = action.payload;
             return {...state, [name]: value};
         case LOGIN:
-            const { login_email, login_password } = state;
-            axios.get('www.google.com').then(console.log)
-            return () => ({...INITIAL_STATE});
+            return {...INITIAL_STATE};
         case SIGNUP:
-            const { signup_email, signup_password, first_name, last_name } = state;
-            return () => ({...INITIAL_STATE});
+            return {...INITIAL_STATE};
+        case LOADING:
+            return {...state, loading: true};
+        case LOGIN_ERRORS:
+            return {
+                ...state,
+                login_errors: action.payload.errors
+            };
+        case SIGNUP_ERRORS:
+            return {
+                ...state,
+                signup_errors: action.payload.errors
+            };
         default:
             return state;
     }

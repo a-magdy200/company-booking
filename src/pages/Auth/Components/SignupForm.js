@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, InputComponent} from "../../../shared";
+import {renderErrors} from "../../../shared/functions";
 
 const SignupForm = (props) => {
     const {
@@ -9,11 +10,13 @@ const SignupForm = (props) => {
         onChange,
         password,
         confirm_password,
-        email
+        email,
+        errors
     } = props;
     return (
         <div className={"form-container"}>
             <h2>Sign up</h2>
+            { renderErrors(errors) }
             <form action="">
                 <InputComponent
                     onChange={onChange}
