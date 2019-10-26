@@ -1,0 +1,28 @@
+Model Company A:
+- Login / Signup
+- Forget Password
+- Dashboard
+```
+latest inspections
+```
+- Inspections List
+```
+view all inspections with filters (to be determined, i.e: from date to date)
+ongoing inspections
+pending inspections
+recent completed inspections
+```
+- Request Inspection
+```
+inspection form
+```
+- Single Inspection Details ( to be confirmed )
+
+```
+all details about inspection
+```
+- View Report
+```
+completed report about inspection
+print function
+```

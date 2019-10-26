@@ -1,0 +1,56 @@
+/*Header*/
+.header {
+    margin-bottom:20px;
+    border-bottom: 1px solid #ddd;
+}
+.header ul {
+    padding: 20px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+.header ul li {
+    margin-right:10px
+}
+/*Input Component*/
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    flex: 1;
+    margin-bottom: 10px;
+}
+.input-box label {
+    min-width: 140px;
+    text-transform: capitalize;
+}
+.input-box input {
+    width:250px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #777;
+    margin-left:10px;
+}
+/*Button*/
+.btn button {
+    background: white;
+    padding: 5px 15px;
+    font-size: 16px;
+    border: 1px solid #333;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.btn button:hover {
+    background-color: #fefefe;
+    box-shadow:0 1px 1px #0003;
+}
+.btn button:active,
+.btn button:focus {
+    background-color: #fdfdfd;
+    box-shadow: 0 1px 1px #0003 inset;
+    outline: none;
+}
