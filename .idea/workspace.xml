@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1376b9c1-f977-46de-a15c-bcb98e318089" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/data/inspections_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/styles/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/Components/InspectionListRow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/all-inspections/AllInspectionsComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/inspectionsActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/inspectionsReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/styles/shared.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/shared.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Auth/AuthComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Auth/AuthComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Auth/Components/SignupForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Auth/Components/SignupForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/Components/InspectionsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Components/InspectionsList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/HomeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/HomeComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/api_url.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/api_url.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572081406286</updated>
-      <workItem from="1572081418577" duration="33692000" />
+      <workItem from="1572081418577" duration="33995000" />
     </task>
     <servers />
   </component>
