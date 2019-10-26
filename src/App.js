@@ -1,21 +1,16 @@
 import React from 'react';
 import './App.css';
 import './assets/styles/shared.css';
-import HomeComponent from "./pages/Home/HomeComponent";
-import {connect, Provider} from 'react-redux';
-import {createStore} from "redux";
+import {connect} from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Redirect,
-    useHistory,
-    useLocation,
-    withRouter
+    Route
 } from 'react-router-dom';
 import AuthComponent from "./pages/Auth/AuthComponent";
+import HomeComponent from "./pages/Home/HomeComponent";
 import {HeaderComponent} from "./shared";
-import store from "./redux/store";
+import AllInspectionsComponent from "./pages/all-inspections/AllInspectionsComponent";
 
 const App = (props) => {
     return (
@@ -25,7 +20,7 @@ const App = (props) => {
                 <Switch>
                     <Route exact path={"/"} component={HomeComponent}/>
                     <Route path={"/new-request"} component={AuthComponent}/>
-                    <Route path={"/requests-list"} component={AuthComponent} />
+                    <Route path={"/requests-list"} component={AllInspectionsComponent} />
                     <Route path={"/login"} component={AuthComponent}/>
                 </Switch>
             </Router>

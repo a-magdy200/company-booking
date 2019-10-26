@@ -13,7 +13,7 @@ const HeaderComponent = (props) => {
                         <Link to={"/new-request"}>New Request</Link>
                     </li>
                     <li>
-                        <Link to={"/all-requests"}>Requests Lists</Link>
+                        <Link to={"/requests-list"}>Requests Lists</Link>
                     </li>
                     <li>
                         <Link to={"/login"}>Login</Link>

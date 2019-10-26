@@ -1,0 +1,43 @@
+.inspections-list {
+
+}
+.inspections-list h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.inspections-list .inspections-list-heading,
+.inspections-list .inspection-row {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+.inspections-list .inspections-list-heading,
+.inspections-list .inspection-row ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.inspections-list .inspections-list-heading li {
+    flex: 1;
+    font-size:16px;
+    font-weight: bold;
+}
+.inspections-list .inspection-row ul li{
+    padding: 5px 0;
+    flex: 1;
+}
+.inspections-list .inspection-row ul li:last-of-type {
+    text-align: center;
+}
+.inspections-list .inspection-row .urgent {
+    background-color: darkred;
+    color: white;
+}
+.inspections-list .inspection-row .normal {
+    background-color: orange;
+    color: black;
+}
+.inspections-list .inspection-row .important {
+    background-color: mediumseagreen;
+    color: black;
+}

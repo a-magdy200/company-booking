@@ -6,7 +6,7 @@ import {
     SIGNUP_ERRORS,
     LOADING
 } from "../types";
-import axios from 'axios';
+
 const INITIAL_STATE = {
     login_email: '',
     login_password: '',

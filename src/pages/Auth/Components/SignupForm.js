@@ -63,8 +63,4 @@ const SignupForm = (props) => {
         </div>
     )
 };
-const signupHandler = (event) => {
-    event.preventDefault();
-    console.log("signup");
-};
 export default SignupForm;
