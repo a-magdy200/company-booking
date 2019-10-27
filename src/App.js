@@ -10,7 +10,7 @@ import {
 import AuthComponent from "./pages/Auth/AuthComponent";
 import HomeComponent from "./pages/Home/HomeComponent";
 import {HeaderComponent} from "./shared";
-import AllInspectionsComponent from "./pages/all-inspections/AllInspectionsComponent";
+import AllInspectionsComponent from "./pages/All-Inspections/AllInspectionsComponent";
 
 const App = (props) => {
     return (

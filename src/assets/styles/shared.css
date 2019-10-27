@@ -13,6 +13,9 @@
 .header ul li {
     margin-right:10px
 }
+.header ul li.active {
+    color: red;
+}
 /*Input Component*/
 .input-box {
     display: flex;
