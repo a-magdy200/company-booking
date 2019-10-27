@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const HeaderComponent = (props) => {
     const {activeLink} = props;
+    console.log(props);
     return (
         <nav className={"header"}>
             <div className="container">
