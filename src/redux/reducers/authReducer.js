@@ -1,5 +1,5 @@
 import {
-    INPUT_UPDATE,
+    AUTH_INPUT_UPDATE,
     LOGIN,
     SIGNUP,
     LOGIN_ERRORS,
@@ -21,9 +21,8 @@ const INITIAL_STATE = {
 };
 export default (state = INITIAL_STATE, action) => {
     const {type} = action;
-    console.log(action);
     switch (type) {
-        case INPUT_UPDATE:
+        case AUTH_INPUT_UPDATE:
             const {name, value} = action.payload;
             return {...state, [name]: value};
         case LOGIN:

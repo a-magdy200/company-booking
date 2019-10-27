@@ -1,5 +1,5 @@
 import {
-    INPUT_UPDATE,
+    AUTH_INPUT_UPDATE,
     LOGIN,
     SIGNUP,
     LOGIN_ERRORS,
@@ -8,17 +8,18 @@ import {
 } from "../types";
 import axios from 'axios';
 import api_url from "../../shared/api_url";
-export const updateInput = (input) => {
-    const { target } = input;
+
+export const updateInput = ({ target }) => {
     const name = target.getAttribute("name");
     const value = target.value;
     return {
-        type: INPUT_UPDATE,
+        type: AUTH_INPUT_UPDATE,
         payload: {
             name, value
         }
     };
 };
+
 const loginAction = () => {
     return {
         type: LOGIN

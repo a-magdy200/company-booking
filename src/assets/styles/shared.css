@@ -17,7 +17,8 @@
     color: red;
 }
 /*Input Component*/
-.input-box {
+.input-box,
+.dropdown {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -26,11 +27,13 @@
     flex: 1;
     margin-bottom: 10px;
 }
-.input-box label {
+.input-box label,
+.dropdown label {
     min-width: 140px;
     text-transform: capitalize;
 }
-.input-box input {
+.input-box input,
+.dropdown select{
     width:250px;
     padding: 5px;
     border-radius: 3px;
@@ -68,4 +71,8 @@
     align-items: center;
     justify-content: center;
     background-color: #fffe;
+}
+/*Dropdown*/
+.dropdown select:focus {
+    outline: none;
 }

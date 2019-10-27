@@ -54,7 +54,7 @@ const mapStateToProps = ({auth}) => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        updateInput: input => dispatch(updateInput(input)),
+        updateInput: event => dispatch(updateInput(event)),
         handleLogin: event => dispatch(login(event)),
         handleSignup: event => dispatch(signup(event))
     }

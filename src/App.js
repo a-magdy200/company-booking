@@ -11,6 +11,7 @@ import AuthComponent from "./pages/Auth/AuthComponent";
 import HomeComponent from "./pages/Home/HomeComponent";
 import {HeaderComponent} from "./shared";
 import AllInspectionsComponent from "./pages/All-Inspections/AllInspectionsComponent";
+import NewInspectionComponent from "./pages/New-Inspection/NewInspectionComponent";
 
 const App = (props) => {
     return (
@@ -19,9 +20,10 @@ const App = (props) => {
                 <HeaderComponent/>
                 <Switch>
                     <Route exact path={"/"} component={HomeComponent}/>
-                    <Route path={"/new-request"} component={AuthComponent}/>
+                    <Route path={"/new-request"} component={NewInspectionComponent}/>
                     <Route path={"/requests-list"} component={AllInspectionsComponent} />
                     <Route path={"/login"} component={AuthComponent}/>
+                    <Route path={"/logout"} component={AuthComponent}/>
                 </Switch>
             </Router>
         </div>
