@@ -7,10 +7,10 @@ import {
 import api_url from "../../shared/api_url";
 const isValidDate = date => (date instanceof Date && !isNaN(date));
 
-export const updateInput = event => {
+export const updateInput = (event, dateInputName = null) => {
     let name, value;
     if (isValidDate(event)) {
-        name = "date";
+        name = dateInputName;
         value = event;
     } else {
         const {target} = event;

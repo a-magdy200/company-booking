@@ -26,6 +26,7 @@ export default (state = INITIAL_STATE, action) => {
             if (INITIAL_STATE.contactDetails.hasOwnProperty(name)) {
                 return {...state, contactDetails:{[name]:value}};
             }
+            console.log(action);
             return {...state, [name]: value};
         case NEW_INSPECTION_ERROR:
             return {...state, error: action.payload.error};

@@ -33,14 +33,16 @@ const NewInspectionComponent = props => {
                 <InputComponent
                     label={"date"}
                     name={"date"}
-                    onChange={updateInput}
+                    onChange={event => updateInput(event, 'date')}
                     value={date}
+                    type={"date"}
                 />
                 <InputComponent
                     label={"dueDate"}
                     name={"dueDate"}
-                    onChange={updateInput}
+                    onChange={event => updateInput(event, 'dueDate')}
                     value={dueDate}
+                    type={"date"}
                 />
                 {dropdowns.map( (dropdown, index) =>
                 <DropdownComponent
@@ -87,7 +89,7 @@ const mapStateToProps = ({ newInspection }) => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        updateInput: event => dispatch(updateInput( event )),
+        updateInput: (event, dateInputName = null) => dispatch(updateInput( event, dateInputName )),
         sendRequest: event => dispatch(sendRequest( event ))
     };
 };
