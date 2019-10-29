@@ -13,11 +13,11 @@ const InputComponent = (props) => {
 const renderInput = (type, name, placeholder, onChange, value) => {
     if (type === 'date') {
         return (
-            <DatePicker id={name} selected={value} onChange={onChange} name={name}/>
+            <DatePicker autoComplete={'off'} id={name} selected={value} onChange={onChange} name={name}/>
         );
     }
     return (
-        <input id={name} type={type || 'text'} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
+        <input autoComplete={'off'} id={name} type={type || 'text'} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
     );
 };
 export {InputComponent};

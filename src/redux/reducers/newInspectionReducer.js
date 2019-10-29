@@ -24,7 +24,14 @@ export default (state = INITIAL_STATE, action) => {
         case NEW_INSPECTION_INPUT_UPDATE:
             const { name, value } = action.payload;
             if (INITIAL_STATE.contactDetails.hasOwnProperty(name)) {
-                return {...state, contactDetails:{[name]:value}};
+                const { contactDetails } = state;
+                return {
+                    ...state,
+                    contactDetails: {
+                        ...contactDetails,
+                        [name]: value || ''
+                    }
+                };
             }
             console.log(action);
             return {...state, [name]: value};

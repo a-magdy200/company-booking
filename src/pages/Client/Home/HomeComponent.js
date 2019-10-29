@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import InspectionsListComponent from "./Components/InspectionsList";
-import {getInspections} from "../../redux/actions/inspectionsActions";
-import "../../assets/styles/home.css";
+import InspectionsListComponent from "../All-Inspections/Components/InspectionsList";
+import {getInspections} from "../../../redux/actions/inspectionsActions";
+import "../../../assets/styles/home.css";
 const HomeComponent = (props) => {
     const { inspections } = props;
-    console.log(inspections);
     return (
         <div className={"container"}>
             <h2>Dashboard</h2>

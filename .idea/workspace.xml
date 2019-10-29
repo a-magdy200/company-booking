@@ -2,11 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1376b9c1-f977-46de-a15c-bcb98e318089" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/Client/ClientHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Client/ClientRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/RenderHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/admin/AdminRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/inspector/Components/Home/HomeComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/inspector/InspectorHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/inspector/InspectorRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New-Inspection/NewInspectionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New-Inspection/NewInspectionComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/newinspectionActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/newinspectionActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/All-Inspections/AllInspectionsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Client/All-Inspections/AllInspectionsComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Components/InspectionListRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Client/All-Inspections/Components/InspectionListRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/Components/InspectionsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Client/All-Inspections/Components/InspectionsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/HomeComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Client/Home/HomeComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New-Inspection/NewInspectionComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Client/New-Inspection/NewInspectionComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/newInspectionReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/newInspectionReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/functions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +44,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/inspector" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,15 +57,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Desktop\on going\sample-react\src\pages\inspector" />
+      <recent name="E:\Desktop\on going\sample-react\src\pages\Client" />
+      <recent name="E:\Desktop\on going\sample-react" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Desktop\on going\sample-react\src\pages\Client\All-Inspections" />
+      <recent name="E:\Desktop\on going\sample-react\src\pages\Client" />
       <recent name="E:\Desktop\on going\sample-react\public" />
       <recent name="E:\Desktop\on going\sample-react\src\pages\Login" />
       <recent name="E:\Desktop\on going\sample-react\src\pages\Login\Components" />
-      <recent name="E:\Desktop\on going\sample-react\src\pages\Home\Components\LoginComponent" />
-      <recent name="E:\Desktop\on going\sample-react\src\pages\Home\Components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Desktop\on going\sample-react" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -78,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572081406286</updated>
       <workItem from="1572081418577" duration="45130000" />
-      <workItem from="1572241066229" duration="1027000" />
+      <workItem from="1572241066229" duration="7764000" />
     </task>
     <servers />
   </component>

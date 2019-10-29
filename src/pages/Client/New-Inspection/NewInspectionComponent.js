@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Button, DropdownComponent, InputComponent} from "../../shared";
-import {sendRequest, updateInput} from "../../redux/actions/newinspectionActions";
-import DatePicker from 'react-datepicker';
+import {Button, DropdownComponent, InputComponent} from "../../../shared";
+import {sendRequest, updateInput} from "../../../redux/actions/newinspectionActions";
+import 'react-datepicker/dist/react-datepicker.css';
 
 const NewInspectionComponent = props => {
     const { inspection, updateInput, sendRequest } = props;
@@ -23,7 +23,6 @@ const NewInspectionComponent = props => {
     return (
         <div className={"container"}>
             <form action="">
-                {/*<DatePicker selected={date} onChange={updateInput} name={"date"}/>*/}
                 <InputComponent
                     label={"location"}
                     name={"location"}

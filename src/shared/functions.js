@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from 'react-router-dom';
 
 export const renderErrors = errors => {
     console.log(errors);
@@ -6,4 +7,7 @@ export const renderErrors = errors => {
         return errors.map( error => <div>{error}</div>)
     }
     return null
+};
+export const redirectHome = () => {
+    return <Redirect to={'/login'} />
 };

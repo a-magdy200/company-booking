@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-const HeaderComponent = () => {
+
+const ClientHeaderComponent = () => {
     const { location } = useHistory();
     const { pathname } = location;
     return (
@@ -14,13 +15,7 @@ const HeaderComponent = () => {
                         <Link to={"/new-request"}>New Request</Link>
                     </li>
                     <li className={ pathname === '/requests-list' ? 'active' : ''}>
-                        <Link to={"/requests-list"}>Requests Lists</Link>
-                    </li>
-                    <li className={ pathname === '/login' ? 'active' : ''}>
-                        <Link to={"/login"}>Login</Link>
-                    </li>
-                    <li className={ pathname === '/register' ? 'active' : ''}>
-                        <Link to={"/register"}>Register</Link>
+                        <Link to={"/requests-list"}>Requests List</Link>
                     </li>
                     <li className={ pathname === '/logout' ? 'active' : ''}>
                         <Link to={"/logout"}>Logout</Link>
@@ -30,4 +25,4 @@ const HeaderComponent = () => {
         </nav>
     )
 };
-export {HeaderComponent}
+export  default ClientHeaderComponent;

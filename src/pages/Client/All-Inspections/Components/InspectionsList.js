@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import InspectionsListRowComponent from "./InspectionListRow";
 const InspectionsListComponent = (props) => {
     const { inspections } = props;
-    console.log(inspections);
     return (
         <Fragment>
             {renderContent(inspections)}
