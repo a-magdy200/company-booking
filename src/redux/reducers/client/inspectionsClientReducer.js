@@ -1,13 +1,13 @@
-import {GET_INSPECTIONS, GET_INSPECTIONS_ERROR} from "../../types";
+import {CLIENT_GET_INSPECTIONS, CLIENT_GET_INSPECTIONS_ERROR} from "../../types";
 const INITIAL_STATE = {
     client_inspections: [],
     error: ''
 };
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case GET_INSPECTIONS:
+        case CLIENT_GET_INSPECTIONS:
             return {...state, client_inspections: action.payload.inspections};
-        case GET_INSPECTIONS_ERROR:
+        case CLIENT_GET_INSPECTIONS_ERROR:
             return {...state, error: action.payload.error};
         default:
             return {...state};

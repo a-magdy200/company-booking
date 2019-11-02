@@ -26,7 +26,7 @@
     padding: 5px 0;
     flex: 1;
 }
-.inspections-list .inspection-row ul li:last-of-type {
+.inspections-list .inspection-row .status {
     text-align: center;
 }
 .inspections-list .inspection-row .urgent {
@@ -34,10 +34,10 @@
     color: white;
 }
 .inspections-list .inspection-row .normal {
-    background-color: orange;
+    background-color: mediumseagreen;
     color: black;
 }
 .inspections-list .inspection-row .important {
-    background-color: mediumseagreen;
+    background-color: orange;
     color: black;
 }

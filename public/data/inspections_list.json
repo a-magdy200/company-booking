@@ -4,27 +4,35 @@
     "dueDate": "11",
     "date": "11-11",
     "status": "normal",
-    "id": 1
+    "id": 1,
+    "clickableed": true,
+    "completed": true
   },
   {
     "type": "type 2",
     "dueDate": "22",
     "date": "22-22",
     "status":  "urgent",
-    "id":  2
+    "id":  2,
+    "clickable":  false,
+    "completed":  false
   },
   {
     "type": "type 3",
     "dueDate": "33",
     "date": "33-33",
     "status":  "normal",
-    "id":  3
+    "id":  3,
+    "clickabled":  true,
+    "completed":  true
   },
   {
     "type": "type 4",
     "dueDate": "44",
     "date": "44-44",
     "status":  "important",
-    "id":  4
+    "id":  4,
+    "clickable":  false,
+    "completed":  false
   }
 ]

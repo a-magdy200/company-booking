@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { GET_INSPECTIONS, GET_INSPECTIONS_ERROR } from "../../types";
+import { CLIENT_GET_INSPECTIONS, CLIENT_GET_INSPECTIONS_ERROR } from "../../types";
 import api_url from "../../../shared/api_url";
 
 const inspections_fetch_success = response => {
     return {
-        type: GET_INSPECTIONS,
+        type: CLIENT_GET_INSPECTIONS,
         payload: { inspections: response.data }
     };
 };
 const inspections_fetch_error = error => {
     return {
-        type: GET_INSPECTIONS_ERROR,
+        type: CLIENT_GET_INSPECTIONS_ERROR,
         payload: { error }
     };
 };

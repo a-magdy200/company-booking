@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
-    NEW_INSPECTION_INPUT_UPDATE,
-    NEW_INSPECTION_ERROR,
-    NEW_INSPECTION_SUCCESS
+    CLIENT_NEW_INSPECTION_INPUT_UPDATE,
+    CLIENT_NEW_INSPECTION_ERROR,
+    CLIENT_NEW_INSPECTION_SUCCESS
 } from "../../types";
 import api_url from "../../../shared/api_url";
 const isValidDate = date => (date instanceof Date && !isNaN(date));
@@ -18,7 +18,7 @@ export const updateInput = (event, dateInputName = null) => {
         value = target.value;
     }
     return {
-        type: NEW_INSPECTION_INPUT_UPDATE,
+        type: CLIENT_NEW_INSPECTION_INPUT_UPDATE,
         payload: {
             name, value
         }
@@ -26,12 +26,12 @@ export const updateInput = (event, dateInputName = null) => {
 };
 const send_request_success = () => {
     return {
-        type: NEW_INSPECTION_SUCCESS
+        type: CLIENT_NEW_INSPECTION_SUCCESS
     }
 };
 const send_request_error = error => {
     return {
-        type: NEW_INSPECTION_ERROR,
+        type: CLIENT_NEW_INSPECTION_ERROR,
         payload: {error}
     }
 };

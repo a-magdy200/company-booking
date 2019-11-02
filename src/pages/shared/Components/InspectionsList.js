@@ -18,6 +18,7 @@ const renderContent = inspections => {
                     <li>Date</li>
                     <li>Due Date</li>
                     <li>Status</li>
+                    <li>Action</li>
                 </ul>
                 {inspections.map( (inspection, index) => <InspectionsListRowComponent
                     key={index}

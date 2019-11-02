@@ -1,7 +1,7 @@
 import {
-    NEW_INSPECTION_ERROR,
-    NEW_INSPECTION_INPUT_UPDATE,
-    NEW_INSPECTION_SUCCESS
+    CLIENT_NEW_INSPECTION_ERROR,
+    CLIENT_NEW_INSPECTION_INPUT_UPDATE,
+    CLIENT_NEW_INSPECTION_SUCCESS
 } from "../../types";
 
 const INITIAL_STATE = {
@@ -21,7 +21,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case NEW_INSPECTION_INPUT_UPDATE:
+        case CLIENT_NEW_INSPECTION_INPUT_UPDATE:
             const { name, value } = action.payload;
             if (INITIAL_STATE.contactDetails.hasOwnProperty(name)) {
                 const { contactDetails } = state;
@@ -35,9 +35,9 @@ export default (state = INITIAL_STATE, action) => {
             }
             console.log(action);
             return {...state, [name]: value};
-        case NEW_INSPECTION_ERROR:
+        case CLIENT_NEW_INSPECTION_ERROR:
             return {...state, error: action.payload.error};
-        case NEW_INSPECTION_SUCCESS:
+        case CLIENT_NEW_INSPECTION_SUCCESS:
             return {...INITIAL_STATE};
         default:
             return state;
