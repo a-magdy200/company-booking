@@ -2,7 +2,7 @@ import {
     NEW_INSPECTION_ERROR,
     NEW_INSPECTION_INPUT_UPDATE,
     NEW_INSPECTION_SUCCESS
-} from "../types";
+} from "../../types";
 
 const INITIAL_STATE = {
     error: '',

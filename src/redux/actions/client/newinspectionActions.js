@@ -3,8 +3,8 @@ import {
     NEW_INSPECTION_INPUT_UPDATE,
     NEW_INSPECTION_ERROR,
     NEW_INSPECTION_SUCCESS
-} from "../types";
-import api_url from "../../shared/api_url";
+} from "../../types";
+import api_url from "../../../shared/api_url";
 const isValidDate = date => (date instanceof Date && !isNaN(date));
 
 export const updateInput = (event, dateInputName = null) => {
@@ -41,12 +41,12 @@ export const sendRequest = event => {
     }
 
     return (dispatch, getState) => {
-        const { newInspection } = getState();
+        const { client_newInspection } = getState();
         const {
             first_name, last_name, email, phone,
             location, type, template, date, dueDate
-        } = newInspection;
-        axios.post(api_url().new_inspection, {
+        } = client_newInspection;
+        axios.post(api_url.new_inspection, {
             location, type, template, date, dueDate,
             contactDetails: {
                 first_name, last_name, email, phone

@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
-import inspectionsReducer from "./inspectionsReducer";
-import newInspectionReducer from './newInspectionReducer';
+import inspectionsClientReducer from "./client/inspectionsClientReducer";
+import newInspectionClientReducer from './client/newInspectionClientReducer';
 
 export default combineReducers({
     auth: authReducer,
-    inspections: inspectionsReducer,
-    newInspection: newInspectionReducer,
+    client_inspections: inspectionsClientReducer,
+    client_newInspection: newInspectionClientReducer,
 });

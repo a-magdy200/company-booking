@@ -54,7 +54,7 @@ export const login = (event) => {
         const { auth } = state;
         const { login_email, login_password } = auth;
         dispatch(formLoading());
-        axios.post(api_url().login_url, {
+        axios.post(api_url.login_url, {
             email: login_email,
             password: login_password
         }, {
@@ -79,7 +79,7 @@ export const signup = (event) => {
         const { auth } = state;
         const { signup_email, signup_password, first_name, last_name } = auth;
         dispatch(formLoading());
-        axios.post(api_url().signup_url, {
+        axios.post(api_url.signup_url, {
             email: signup_email,
             password: signup_password,
             first_name,

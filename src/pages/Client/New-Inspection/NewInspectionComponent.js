@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Button, DropdownComponent, InputComponent} from "../../../shared";
-import {sendRequest, updateInput} from "../../../redux/actions/newinspectionActions";
+import {sendRequest, updateInput} from "../../../redux/actions/client/newinspectionActions";
 import 'react-datepicker/dist/react-datepicker.css';
 
 const NewInspectionComponent = props => {
-    const { inspection, updateInput, sendRequest } = props;
-    const { location, dueDate, date, contactDetails } = inspection;
+    const { client_inspection, updateInput, sendRequest } = props;
+    console.log(props);
+    const { location, dueDate, date, contactDetails } = client_inspection;
     const { first_name, last_name, email, phone } = contactDetails;
     const dropdowns = [
         {
@@ -50,7 +51,7 @@ const NewInspectionComponent = props => {
                     name={dropdown.name}
                     onChange={updateInput}
                     options={dropdown.options}
-                    value={inspection[dropdown.name]}
+                    value={client_inspection[dropdown.name]}
                 />)}
                 <div className="contact-details">
                     <InputComponent
@@ -83,8 +84,8 @@ const NewInspectionComponent = props => {
         </div>
     );
 };
-const mapStateToProps = ({ newInspection }) => {
-    return { inspection: { ...newInspection } };
+const mapStateToProps = ({ client_newInspection }) => {
+    return { client_inspection: { ...client_newInspection } };
 };
 const mapDispatchToProps = dispatch => {
     return {

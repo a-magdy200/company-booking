@@ -16,7 +16,7 @@ import InspectorRoutes from "./pages/inspector/InspectorRoutes";
 import RenderHeader from "./pages/RenderHeader";
 
 const App = (props) => {
-    const user = 'b';
+    const user = 'a';
     return (
         <div className="App">
             <Router>

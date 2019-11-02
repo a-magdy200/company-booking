@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import InspectionsListComponent from "../All-Inspections/Components/InspectionsList";
-import {getInspections} from "../../../redux/actions/inspectionsActions";
+import InspectionsListComponent from "../../shared/Components/InspectionsList";
+import {getInspections} from "../../../redux/actions/client/inspectionsActions";
 import "../../../assets/styles/home.css";
 const HomeComponent = (props) => {
-    const { inspections } = props;
+    const { client_inspections } = props;
     return (
         <div className={"container"}>
             <h2>Dashboard</h2>
-            <InspectionsListComponent inspections={ inspections }/>
+            <InspectionsListComponent inspections={ client_inspections }/>
         </div>
     )
 };
-const mapStateToProps = ({ inspections }) => {
-    return { ...inspections };
+const mapStateToProps = ({ client_inspections }) => {
+    return { ...client_inspections };
 };
 const mapDispatchToProps = dispatch => {
     dispatch(getInspections("dashboard"));

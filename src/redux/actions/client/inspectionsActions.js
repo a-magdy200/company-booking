@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { GET_INSPECTIONS, GET_INSPECTIONS_ERROR } from "../types";
-import api_url from "../../shared/api_url";
+import { GET_INSPECTIONS, GET_INSPECTIONS_ERROR } from "../../types";
+import api_url from "../../../shared/api_url";
 
 const inspections_fetch_success = response => {
     return {
@@ -16,7 +16,7 @@ const inspections_fetch_error = error => {
 };
 export const getInspections = page => {
     return (dispatch, getState) => {
-        const url = page === 'all' ? api_url().get_all_inspections : api_url().get_dashboard_inspections;
+        const url = page === 'all' ? api_url.get_client_all_inspections : api_url.get_client_dashboard_inspections;
         axios.get(url)
             .then( response => {
                 dispatch(inspections_fetch_success(response));
