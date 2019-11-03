@@ -49,8 +49,8 @@ const fetch_inspection_error = error => {
 };
 export const get_inspection = id => {
     return dispatch => {
-        axios.get(server_url + api_url.get_inspection)
-            .then( response => dispatch(fetch_inspection_success(response.data)))
+        axios.get(server_url + api_url.get_inspection + id)
+            .then( response => dispatch(fetch_inspection_success(response.data.inspection)))
             .catch( error => dispatch(fetch_inspection_error(error)));
     }
 };
