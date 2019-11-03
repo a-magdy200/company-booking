@@ -19,7 +19,7 @@ const ReportComponent = props => {
         <InspectionDetailsComponent inspection={inspection} />
         {
             status === 'completed' ?
-            <ReportDetailsComponent report={report}/> :
+            <ReportDetailsComponent report={inspection.report}/> :
             <NewReportComponent report={report} onChange={onChange} submitReport={submitReport} />
         }
 

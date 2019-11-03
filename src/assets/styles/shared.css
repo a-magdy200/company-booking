@@ -87,6 +87,11 @@
     border: 1px solid #aaa;
     border-radius: 3px;
     text-transform: capitalize;
+    margin-bottom: 15px;
+}
+.card .card-heading {
+    text-align: center;
+    margin: 20px 0;
 }
 /* Card Section */
 .card-section {

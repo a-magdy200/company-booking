@@ -2,7 +2,10 @@
   "type": "type 1",
   "dueDate": "11",
   "date": "11-11",
-  "status": "normal",
+  "status": "completed",
   "id": 1,
-  "completed": true
+  "completed": true,
+  "report": {
+    "comment": "test comment"
+  }
 }
