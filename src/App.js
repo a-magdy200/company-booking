@@ -8,15 +8,14 @@ import {
     Route
 } from 'react-router-dom';
 import AuthComponent from "./pages/Auth/AuthComponent";
-import { HeaderComponent } from "./shared";
 
 import ClientRoutes from "./pages/Client/ClientRoutes";
 import AdminRoutes from "./pages/admin/AdminRoutes";
 import InspectorRoutes from "./pages/inspector/InspectorRoutes";
 import RenderHeader from "./pages/RenderHeader";
 
-const App = (props) => {
-    const user = 'a';
+const App = props => {
+    const user = 'b';
     return (
         <div className="App">
             <Router>

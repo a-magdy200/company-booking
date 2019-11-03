@@ -26,5 +26,5 @@ const renderContent = inspections => {
             </div>
         )
     }
-}
-export default InspectionsListComponent;
+};
+export {InspectionsListComponent};

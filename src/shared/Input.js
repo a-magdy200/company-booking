@@ -15,9 +15,15 @@ const renderInput = (type, name, placeholder, onChange, value) => {
         return (
             <DatePicker autoComplete={'off'} id={name} selected={value} onChange={onChange} name={name}/>
         );
+    } else if (type === 'textarea') {
+        return (
+            <textarea id={name} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
+        )
+    } else {
+        return (
+            <input autoComplete={'off'} id={name} type={type || 'text'} name={name} placeholder={placeholder}
+                   onChange={onChange} value={value}/>
+        );
     }
-    return (
-        <input autoComplete={'off'} id={name} type={type || 'text'} name={name} placeholder={placeholder} onChange={onChange} value={value}/>
-    );
 };
 export {InputComponent};

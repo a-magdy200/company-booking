@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 const InspectionsListRowComponent = (props) => {
     const { inspection } = props;
     const { type, date, dueDate, status, id, completed } = inspection;
-    const user = 'a';
+    const user = 'b';
     return (
         <div className={"inspection-row"}>
             <ul>
@@ -19,7 +19,7 @@ const InspectionsListRowComponent = (props) => {
                             ) :
                             (
                                 user === 'b' ?
-                                    <Link to={'/inspections/' + id}>View Details</Link>:<span>-</span>
+                                    <Link to={'/reports/' + id}>View Details</Link>:<span>-</span>
                             )
                     }
                 </li>

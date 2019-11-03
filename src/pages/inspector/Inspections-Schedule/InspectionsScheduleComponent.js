@@ -1,13 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {get_inspections} from "../../../redux/actions/inspector/inspectorActions";
+import {InspectionsListComponent} from "../../shared/Components";
 
 const InspectionsScheduleComponent = props => {
-    return <div>Inspections Schedule</div>;
+    const { inspections } = props;
+    return <div className={'container'}>
+        <InspectionsListComponent inspections={inspections}/>
+    </div>;
 };
-const mapStateToProps = state => {
-    return  { ...state };
+const mapStateToProps = ({inspector_inspections}) => {
+    return  { inspections: inspector_inspections.inspections };
 };
 const mapDispatchToProps = dispatch => {
+    dispatch(get_inspections('schedule'));
     return {};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(InspectionsScheduleComponent);

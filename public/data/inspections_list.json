@@ -5,7 +5,6 @@
     "date": "11-11",
     "status": "normal",
     "id": 1,
-    "clickableed": true,
     "completed": true
   },
   {
@@ -14,7 +13,6 @@
     "date": "22-22",
     "status":  "urgent",
     "id":  2,
-    "clickable":  false,
     "completed":  false
   },
   {
@@ -23,7 +21,6 @@
     "date": "33-33",
     "status":  "normal",
     "id":  3,
-    "clickabled":  true,
     "completed":  true
   },
   {
@@ -32,7 +29,6 @@
     "date": "44-44",
     "status":  "important",
     "id":  4,
-    "clickable":  false,
     "completed":  false
   }
 ]

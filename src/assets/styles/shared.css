@@ -33,12 +33,17 @@
     text-transform: capitalize;
 }
 .input-box input,
+.input-box textarea,
 .dropdown select{
     width:250px;
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #777;
     margin-left:10px;
+}
+.input-box textarea {
+    resize: vertical;
+    width: 100%;
 }
 /*Button*/
 .btn button {
@@ -72,7 +77,34 @@
     justify-content: center;
     background-color: #fffe;
 }
-/*Dropdown*/
+/* Dropdown */
 .dropdown select:focus {
     outline: none;
+}
+
+/* Card */
+.card {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    text-transform: capitalize;
+}
+/* Card Section */
+.card-section {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.card-section:last-of-type {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.card-section .title {
+    font-weight: 600;
+    min-width: 140px;
+}
+.card-section .value {
+    font-size: 18px;
+    margin-left: 10px;
 }
