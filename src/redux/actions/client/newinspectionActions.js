@@ -4,7 +4,7 @@ import {
     CLIENT_NEW_INSPECTION_ERROR,
     CLIENT_NEW_INSPECTION_SUCCESS
 } from "../../types";
-import api_url from "../../../shared/api_url";
+import { server_url, api_url } from "../../../shared/api_url";
 const isValidDate = date => (date instanceof Date && !isNaN(date));
 
 export const updateInput = (event, dateInputName = null) => {
@@ -46,7 +46,7 @@ export const sendRequest = event => {
             first_name, last_name, email, phone,
             location, type, template, date, dueDate
         } = client_newInspection;
-        axios.post(api_url.new_inspection, {
+        axios.post(server_url + api_url.post_inspection, {
             location, type, template, date, dueDate,
             contactDetails: {
                 first_name, last_name, email, phone

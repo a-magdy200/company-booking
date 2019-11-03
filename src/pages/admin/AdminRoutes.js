@@ -1,5 +1,5 @@
 import React from 'react';
-const AdminRoutes = props => {
+const AdminRoutes = ({ user }) => {
     return <div>
         admin routes
     </div>;

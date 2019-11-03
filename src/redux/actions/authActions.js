@@ -7,7 +7,8 @@ import {
     LOADING
 } from "../types";
 import axios from 'axios';
-import api_url from "../../shared/api_url";
+import { server_url, api_url } from "../../shared/api_url";
+import {setUser} from "./userActions";
 
 export const updateInput = ({ target }) => {
     const name = target.getAttribute("name");
@@ -54,7 +55,7 @@ export const login = (event) => {
         const { auth } = state;
         const { login_email, login_password } = auth;
         dispatch(formLoading());
-        axios.post(api_url.login_url, {
+        axios.post(server_url + api_url.login_url, {
             email: login_email,
             password: login_password
         }, {
@@ -62,12 +63,10 @@ export const login = (event) => {
                 'Content-Type': 'application/json'
             }
         }).then( response => {
-            console.log("Login Response");
-            console.log(response);
-            dispatch(loginAction())
+            dispatch(loginAction());
+            const { user, token } = response;
+            dispatch(setUser(user, token));
         }).catch( errors => {
-            console.log("Login Error");
-            console.log(errors);
             dispatch(loginErrors(errors));
         });
     };
@@ -79,7 +78,7 @@ export const signup = (event) => {
         const { auth } = state;
         const { signup_email, signup_password, first_name, last_name } = auth;
         dispatch(formLoading());
-        axios.post(api_url.signup_url, {
+        axios.post(server_url + api_url.signup_url, {
             email: signup_email,
             password: signup_password,
             first_name,
@@ -91,7 +90,9 @@ export const signup = (event) => {
         }).then( response => {
             console.log("SignUp Response");
             console.log(response);
-            dispatch(signupAction())
+            const { user, token } = response;
+            dispatch(signupAction());
+            dispatch(setUser(user, token));
         }).catch( errors => {
             console.log("SignUp Error");
             console.log(errors);

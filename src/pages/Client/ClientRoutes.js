@@ -6,8 +6,8 @@ import NewInspectionComponent from "./New-Inspection/NewInspectionComponent";
 import AllInspectionsComponent from "./All-Inspections/AllInspectionsComponent";
 import ViewReportsComponent from "./View-Report/ViewReportComponent";
 
-const ClientRoutes = ({user}) => {
-    if (user === 'a') {
+const ClientRoutes = ({ user }) => {
+    if (user.role === 'client') {
         return (
             <Fragment>
                 <Route exact path={"/"} component={HomeComponent}/>
