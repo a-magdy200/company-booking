@@ -28,8 +28,6 @@ const inspector = {
     role: 'inspector',
 };
 const App = ({ user }) => {
-    console.log(user);
-    // const user = client;
     const { role } = user;
     return (
         <div className="App">
@@ -40,6 +38,7 @@ const App = ({ user }) => {
                 <Switch>
                     <Route path={"/login"} component={AuthComponent}/>
                     <Route path={"/logout"} component={AuthComponent}/>
+                    <Route path={"/register"} component={AuthComponent}/>
                     <Route render={() => {
                             if (role === 'client') {
                                 return <ClientRoutes user={user}/>;

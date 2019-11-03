@@ -64,7 +64,8 @@ export const login = (event) => {
             }
         }).then( response => {
             dispatch(loginAction());
-            const { user, token } = response;
+            const { data } = response;
+            const { user, token } = data;
             dispatch(setUser(user, token));
         }).catch( errors => {
             dispatch(loginErrors(errors));
@@ -90,7 +91,8 @@ export const signup = (event) => {
         }).then( response => {
             console.log("SignUp Response");
             console.log(response);
-            const { user, token } = response;
+            const { data } = response;
+            const { user, token } = data;
             dispatch(signupAction());
             dispatch(setUser(user, token));
         }).catch( errors => {

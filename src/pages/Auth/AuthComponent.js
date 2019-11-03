@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom';
 import LoginForm from "./Components/LoginForm";
 import SignupForm from "./Components/SignupForm";
 import "../../assets/styles/login.css";
@@ -7,12 +8,11 @@ import { updateInput, login, signup } from "../../redux/actions/authActions";
 
 const AuthComponent = (props) => {
     const {
-        user,
-        history,
+        isLoggedIn,
         loading
     } = props;
-    if (user) {
-        history.push("/");
+    if (isLoggedIn) {
+        return <Redirect to={'/'} />
     } else {
         return (
             <div className={"container"}>
@@ -49,8 +49,8 @@ const renderContent = props => {
         </div>
     )
 };
-const mapStateToProps = ({auth}) => {
-    return {...auth}
+const mapStateToProps = ({auth, user}) => {
+    return {...auth, isLoggedIn: user.isLoggedIn};
 };
 const mapDispatchToProps = dispatch => {
     return {

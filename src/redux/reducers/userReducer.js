@@ -5,7 +5,9 @@ const INITIAL_STATE = {
     last_name: '',
     email: '',
     token: '',
-    id: ''
+    id: '',
+    role: '',
+    isLoggedIn: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -13,11 +15,12 @@ export default (state = INITIAL_STATE, action) => {
         case SET_USER:
             const {token, user} = action.payload;
             return {
-                ...user, token
+                ...user, token,
+                isLoggedIn: true
             };
         case USER_LOGOUT:
             return { ...INITIAL_STATE };
         default:
-            return {...INITIAL_STATE};
+            return {...state};
     }
 }
