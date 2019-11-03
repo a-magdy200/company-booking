@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from 'react-router-dom';
 import AuthComponent from "./pages/Auth/AuthComponent";
 
@@ -28,7 +29,7 @@ const inspector = {
     role: 'inspector',
 };
 const App = ({ user }) => {
-    const { role } = user;
+    const { role, isLoggedIn } = user;
     return (
         <div className="App">
             <Router>
@@ -40,15 +41,18 @@ const App = ({ user }) => {
                     <Route path={"/logout"} component={AuthComponent}/>
                     <Route path={"/register"} component={AuthComponent}/>
                     <Route render={() => {
-                            if (role === 'client') {
-                                return <ClientRoutes user={user}/>;
-                            } else if (role === 'inspector') {
-                                return <InspectorRoutes user={user}/>;
-                            } else if (role === 'admin') {
-                                return <AdminRoutes user={user}/>;
-                            } else {
-                                return <div>Not Found</div>;
-                            }
+                        if (!isLoggedIn) {
+                            return <Redirect to={'/login'} />
+                        }
+                        if (role === 'client') {
+                            return <ClientRoutes user={user}/>;
+                        } else if (role === 'inspector') {
+                            return <InspectorRoutes user={user}/>;
+                        } else if (role === 'admin') {
+                            return <AdminRoutes user={user}/>;
+                        } else {
+                            return <div>Not Found</div>;
+                        }
                         }
                     } />
                 </Switch>

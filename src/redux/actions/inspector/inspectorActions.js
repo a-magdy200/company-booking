@@ -25,16 +25,13 @@ const fetch_inspections_error = error => {
 };
 export const get_inspections = page => {
     let url;
-    if (page === 'all') {
-        url = server_url + api_url.get_inspector_all_inspections;
-    } else if (page === 'dashboard') {
-        url = server_url + api_url.get_inspector_dashboard_inspections;
-    } else if (page === 'schedule') {
-        url = server_url + api_url.get_inspector_schedule_inspections;
-    }
-    return (dispatch) => {
+    url = server_url + api_url.get_inspector_all_inspections + '/' + page;
+    return (dispatch, getState) => {
+        const { user } = getState();
+        const { id } = user;
+        url = url.replace("%ID%", id);
         axios.get(url)
-            .then( response => dispatch(fetch_inspections_success(response.data)))
+            .then( response => dispatch(fetch_inspections_success(response.data.inspections)))
             .catch( error => dispatch(fetch_inspections_error(error)));
     }
 };
