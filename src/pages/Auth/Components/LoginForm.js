@@ -3,11 +3,14 @@ import {Button, InputComponent} from "../../../shared";
 import { renderErrors } from "../../../shared/functions";
 
 const LoginForm = (props) => {
-    const {errors, loginHandler, email, password, onChange} = props;
+    //TODO: remove load credentials and buttons
+    const {errors, loginHandler, email, password, onChange, loadCredentials} = props;
     return (
         <div className={"form-container"}>
             <h2>Login</h2>
             { renderErrors(errors) }
+            <Button text={'Client Credentials'} handler={() => loadCredentials('client')} />
+            <Button text={'Inspector Credentials'} handler={() => loadCredentials('inspector')} />
             <form action="">
                 <InputComponent
                     value={email}

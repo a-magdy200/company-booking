@@ -12,6 +12,8 @@ export const USER_LOGOUT = 'user_logout';
 // Inspections Reducer Types
 export const CLIENT_GET_INSPECTIONS = 'client_get_inspections';
 export const CLIENT_GET_INSPECTIONS_ERROR = 'client_get_inspections_error';
+export const CLIENT_GET_INSPECTION = 'client_get_inspection';
+export const CLIENT_GET_INSPECTION_ERROR = 'client_get_inspection_error';
 
 // New Inspection Reducer Types
 export const CLIENT_NEW_INSPECTION_INPUT_UPDATE = 'client_new_inspection_input_update';

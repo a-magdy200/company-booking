@@ -25,7 +25,7 @@ const fetch_inspections_error = error => {
 };
 export const get_inspections = page => {
     let url;
-    url = server_url + api_url.get_inspector_all_inspections + '/' + page;
+    url = server_url + api_url.get_inspector_inspections + '/' + page;
     return (dispatch, getState) => {
         const { user } = getState();
         const { id } = user;

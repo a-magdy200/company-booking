@@ -6,6 +6,7 @@ import {InspectionsListComponent} from "../../shared/Components";
 const HomeComponent = props => {
     const { inspections } = props;
     return <div className={'container'}>
+        <h2>Summary</h2>
         <InspectionsListComponent inspections={inspections}/>
     </div>;
 };

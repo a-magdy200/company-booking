@@ -5,6 +5,7 @@ import SignupForm from "./Components/SignupForm";
 import "../../assets/styles/login.css";
 import { connect } from 'react-redux';
 import { updateInput, login, signup } from "../../redux/actions/authActions";
+import {AUTH_INPUT_UPDATE} from "../../redux/types";
 
 const AuthComponent = (props) => {
     const {
@@ -25,7 +26,7 @@ const renderContent = props => {
     const {
         login_email, login_password, login_errors,
         signup_email, signup_password, signup_confirm_password, first_name, last_name, signup_errors,
-        updateInput, handleLogin, handleSignup
+        updateInput, handleLogin, handleSignup, loadCredentials//TODO:remove load credentials
     } = props;
     return (
         <div className="auth-container">
@@ -35,6 +36,7 @@ const renderContent = props => {
                 password={login_password}
                 loginHandler={handleLogin}
                 errors={login_errors}
+                loadCredentials={loadCredentials}//TODO:Remove this line
             />
             <SignupForm
                 onChange={updateInput}
@@ -56,7 +58,32 @@ const mapDispatchToProps = dispatch => {
     return {
         updateInput: event => dispatch(updateInput(event)),
         handleLogin: event => dispatch(login(event)),
-        handleSignup: event => dispatch(signup(event))
+        handleSignup: event => dispatch(signup(event)),
+        loadCredentials: (type) => {
+            let email, password;
+            if (type === 'client') {
+                email = 'Toni45@hotmail.com';
+                password = 'iEa60BwwiCFLDZb';
+            } else if (type === 'inspector') {
+                email = 'Diana86@hotmail.com';
+                password = 'FAwkRMULqZ8Qu5j';
+            }
+
+            dispatch({
+                type: AUTH_INPUT_UPDATE,
+                payload: {
+                    name: 'login_email',
+                    value: email
+                }
+            });
+            dispatch({
+                type: AUTH_INPUT_UPDATE,
+                payload: {
+                    name: 'login_password',
+                    value: password
+                }
+            });
+        }//TODO:Remove From Line 62 Until Here
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AuthComponent);

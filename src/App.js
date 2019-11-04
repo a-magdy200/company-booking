@@ -14,21 +14,11 @@ import ClientRoutes from "./pages/Client/ClientRoutes";
 import AdminRoutes from "./pages/admin/AdminRoutes";
 import InspectorRoutes from "./pages/inspector/InspectorRoutes";
 import RenderHeader from "./pages/RenderHeader";
-const client = {
-    first_name: 'John',
-    last_name: 'Doe',
-    email: 'example@domain.com',
-    id: 3,
-    role: 'client',
-};
-const inspector = {
-    first_name: 'Mary',
-    last_name: 'Jane',
-    email: 'example2@domain.com',
-    id: 13,
-    role: 'inspector',
-};
-const App = ({ user }) => {
+import {logoutUser} from "./redux/actions/userActions";
+import ProfileComponent from "./pages/Profile/ProfileComponent";
+import {redirectHome} from "./shared/functions";
+import {PrivateRoute} from "./shared";
+const App = ({ user, logout }) => {
     const { role, isLoggedIn } = user;
     return (
         <div className="App">
@@ -38,23 +28,27 @@ const App = ({ user }) => {
 
                 <Switch>
                     <Route path={"/login"} component={AuthComponent}/>
-                    <Route path={"/logout"} component={AuthComponent}/>
+                    <Route path={"/logout"} render={ () => {
+                        logout();
+                        return redirectHome();
+                    }}/>
                     <Route path={"/register"} component={AuthComponent}/>
                     <Route render={() => {
-                        if (!isLoggedIn) {
-                            return <Redirect to={'/login'} />
-                        }
-                        if (role === 'client') {
-                            return <ClientRoutes user={user}/>;
-                        } else if (role === 'inspector') {
-                            return <InspectorRoutes user={user}/>;
-                        } else if (role === 'admin') {
-                            return <AdminRoutes user={user}/>;
-                        } else {
-                            return <div>Not Found</div>;
-                        }
+                            if (!isLoggedIn) {
+                                return <Redirect to={'/login'} />
+                            }
+                            if (role === 'client') {
+                                return <ClientRoutes user={user}/>;
+                            } else if (role === 'inspector') {
+                                return <InspectorRoutes user={user}/>;
+                            } else if (role === 'admin') {
+                                return <AdminRoutes user={user}/>;
+                            } else {
+                                return redirectHome();
+                            }
                         }
                     } />
+                    <PrivateRoute user={user} path={'/profile'} component={ProfileComponent}/>
                 </Switch>
             </Router>
         </div>
@@ -64,6 +58,6 @@ const mapStateToProps = ({ user }) => {
     return { user: { ...user }};
 };
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {logout: () => dispatch(logoutUser())};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

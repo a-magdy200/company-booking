@@ -12,7 +12,6 @@ const renderContent = inspections => {
     if (inspections.length) {
         return (
             <div className={"inspections-list"}>
-                <h2>Inspections List</h2>
                 <ul className="inspections-list-heading">
                     <li>Type</li>
                     <li>Date</li>
