@@ -1,17 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {getInspection} from "../../../redux/actions/client/inspectionsActions";
-import {Card, CardSection} from "../../shared/Components";
+import {Card, CardSection, InspectionDetailsComponent} from "../../shared/Components";
 
 const ViewReportComponent = ({id, inspection}) => {
-    const keys = Object.keys(inspection);
     return <div className={'container'}>
-        <h2>Report Details</h2>
-        <Card>
-            {keys.map( (key, index) => {
-                return <CardSection key={index} title={key} value={inspection[key]}/>
-            })}
-        </Card>
+        <InspectionDetailsComponent inspection={inspection}/>
     </div>
 };
 
