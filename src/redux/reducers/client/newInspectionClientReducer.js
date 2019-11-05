@@ -1,7 +1,10 @@
 import {
     CLIENT_NEW_INSPECTION_ERROR,
     CLIENT_NEW_INSPECTION_INPUT_UPDATE,
-    CLIENT_NEW_INSPECTION_SUCCESS
+    CLIENT_NEW_INSPECTION_LOADING,
+    CLIENT_NEW_INSPECTION_PRELOAD_INPUTS,
+    CLIENT_NEW_INSPECTION_RESET,
+    CLIENT_NEW_INSPECTION_SUCCESS,
 } from "../../types";
 
 const INITIAL_STATE = {
@@ -11,12 +14,16 @@ const INITIAL_STATE = {
     template: '',
     date: '',
     dueDate: '',
+    client_id: '',
+    loading: false,
     contactDetails: {
         first_name: '',
         last_name: '',
         email: '',
         phone: ''
-    }
+    },
+    success: false,
+    preloaded: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -33,12 +40,29 @@ export default (state = INITIAL_STATE, action) => {
                     }
                 };
             }
-            console.log(action);
             return {...state, [name]: value};
         case CLIENT_NEW_INSPECTION_ERROR:
-            return {...state, error: action.payload.error};
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error
+            };
         case CLIENT_NEW_INSPECTION_SUCCESS:
+            return {...INITIAL_STATE, success: true};
+        case CLIENT_NEW_INSPECTION_LOADING:
+            return {...state, loading: true};
+        case CLIENT_NEW_INSPECTION_RESET:
             return {...INITIAL_STATE};
+        case CLIENT_NEW_INSPECTION_PRELOAD_INPUTS:
+            const { client_id, email, first_name, last_name } = action.payload;
+            return {
+                ...INITIAL_STATE, client_id,
+                preloaded: true,
+                contactDetails: {
+                    email, first_name, last_name,
+                    phone: ''
+                }
+            };
         default:
             return state;
     }

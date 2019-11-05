@@ -5,7 +5,7 @@ import HomeComponent from "./Home/HomeComponent";
 import NewInspectionComponent from "./New-Inspection/NewInspectionComponent";
 import AllInspectionsComponent from "./All-Inspections/AllInspectionsComponent";
 import ViewReportsComponent from "./View-Report/ViewReportComponent";
-
+import { connect } from 'react-redux';
 const ClientRoutes = ({ user }) => {
     if (user.role === 'client') {
         return (

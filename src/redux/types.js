@@ -4,7 +4,7 @@ export const LOGIN = 'login';
 export const SIGNUP = 'signup';
 export const LOGIN_ERRORS = 'login_errors';
 export const SIGNUP_ERRORS = 'signup_errors';
-export const LOADING = 'loading';
+export const USER_AUTH_LOADING = 'user_auth_loading';
 export const SET_USER = 'set_user';
 export const USER_LOGOUT = 'user_logout';
 
@@ -19,6 +19,10 @@ export const CLIENT_GET_INSPECTION_ERROR = 'client_get_inspection_error';
 export const CLIENT_NEW_INSPECTION_INPUT_UPDATE = 'client_new_inspection_input_update';
 export const CLIENT_NEW_INSPECTION_ERROR = 'client_new_inspection_error';
 export const CLIENT_NEW_INSPECTION_SUCCESS = 'client_new_inspection_success';
+export const CLIENT_NEW_INSPECTION_LOADING = 'client_new_inspection_loading';
+export const CLIENT_NEW_INSPECTION_PRELOAD_INPUTS = 'client_new_inspection_preload_inputs';
+export const CLIENT_NEW_INSPECTION_RESET = 'client_new_inspection_reset';
+
 
 // Inspector Types
 export const INSPECTOR_GET_INSPECTIONS = 'inspector_get_inspections';

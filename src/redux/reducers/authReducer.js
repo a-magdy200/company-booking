@@ -4,7 +4,7 @@ import {
     SIGNUP,
     LOGIN_ERRORS,
     SIGNUP_ERRORS,
-    LOADING
+    USER_AUTH_LOADING
 } from "../types";
 
 const INITIAL_STATE = {
@@ -29,7 +29,7 @@ export default (state = INITIAL_STATE, action) => {
             return {...INITIAL_STATE};
         case SIGNUP:
             return {...INITIAL_STATE};
-        case LOADING:
+        case USER_AUTH_LOADING:
             return {...state, loading: true};
         case LOGIN_ERRORS:
             return {

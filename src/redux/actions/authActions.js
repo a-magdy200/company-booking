@@ -4,7 +4,7 @@ import {
     SIGNUP,
     LOGIN_ERRORS,
     SIGNUP_ERRORS,
-    LOADING
+    USER_AUTH_LOADING
 } from "../types";
 import axios from 'axios';
 import { server_url, api_url } from "../../shared/api_url";
@@ -45,7 +45,7 @@ const signupErrors = errors => {
 };
 const formLoading = () => {
     return {
-        type: LOADING
+        type: USER_AUTH_LOADING
     };
 };
 export const login = (event) => {
