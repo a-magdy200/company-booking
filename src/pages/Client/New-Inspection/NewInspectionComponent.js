@@ -6,14 +6,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 const NewInspectionComponent = props => {
     const { client_inspection, updateInput, sendRequest } = props;
-    console.log(props);
     const { location, dueDate, date, contactDetails } = client_inspection;
     const { first_name, last_name, email, phone } = contactDetails;
     const dropdowns = [
         {
             label: "Inspection Type",
             name: "type",
-            options: ["type 1", "type 2"]
+            options: ['Sports', 'Baby', 'Music', 'Industrial', 'Kids', 'Health', 'Home', 'Shoes', 'Tools', 'Beauty', 'Automotive', 'Outdoors', 'Clothing']
         },
         {
             label: "template",

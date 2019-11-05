@@ -7,19 +7,18 @@ import {
 } from "../../../redux/actions/inspector/inspectorActions";
 import { redirectHome } from "../../../shared/functions";
 import {
-    InspectionDetailsComponent,
-    NewReportComponent,
-    ReportDetailsComponent
+    DetailsComponent,
+    NewReportComponent
 } from "../../shared/Components";
 
 const ReportComponent = props => {
     const { inspection, report, onChange, submitReport } = props;
     const { status } = inspection;
     return <div className={'container'}>
-        <InspectionDetailsComponent inspection={inspection} />
+        <DetailsComponent title={'Inspection Details'} details={inspection} />
         {
             status === 'completed' ?
-            <ReportDetailsComponent report={inspection.report}/> :
+            <DetailsComponent title={"Report Details"} details={inspection.report} /> :
             <NewReportComponent report={report} onChange={onChange} submitReport={submitReport} />
         }
 

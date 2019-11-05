@@ -63,10 +63,14 @@ export const login = (event) => {
                 'Content-Type': 'application/json'
             }
         }).then( response => {
-            dispatch(loginAction());
             const { data } = response;
-            const { user, token } = data;
-            dispatch(setUser(user, token));
+            const { user, token, error } = data;
+            if (error) {
+                dispatch(loginErrors(error));
+            } else {
+                dispatch(loginAction());
+                dispatch(setUser(user, token));
+            }
         }).catch( errors => {
             dispatch(loginErrors(errors));
         });
@@ -92,9 +96,13 @@ export const signup = (event) => {
             console.log("SignUp Response");
             console.log(response);
             const { data } = response;
-            const { user, token } = data;
-            dispatch(signupAction());
-            dispatch(setUser(user, token));
+            const { user, token, error } = data;
+            if (error) {
+                dispatch(signupErrors(error));
+            } else {
+                dispatch(signupAction());
+                dispatch(setUser(user, token));
+            }
         }).catch( errors => {
             console.log("SignUp Error");
             console.log(errors);

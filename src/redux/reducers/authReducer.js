@@ -34,11 +34,13 @@ export default (state = INITIAL_STATE, action) => {
         case LOGIN_ERRORS:
             return {
                 ...state,
+                loading: false,
                 login_errors: action.payload.errors
             };
         case SIGNUP_ERRORS:
             return {
                 ...state,
+                loading: false,
                 signup_errors: action.payload.errors
             };
         default:

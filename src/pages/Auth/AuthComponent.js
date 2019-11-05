@@ -62,11 +62,11 @@ const mapDispatchToProps = dispatch => {
         loadCredentials: (type) => {
             let email, password;
             if (type === 'client') {
-                email = 'Toni45@hotmail.com';
-                password = 'iEa60BwwiCFLDZb';
+                email = 'Grant78@hotmail.com';
+                password = 'RTc8UHjN4LeqezI';
             } else if (type === 'inspector') {
-                email = 'Diana86@hotmail.com';
-                password = 'FAwkRMULqZ8Qu5j';
+                email = 'Andre85@gmail.com';
+                password = 'DLc8eEw6O5ojAZh';
             }
 
             dispatch({

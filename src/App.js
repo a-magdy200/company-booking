@@ -6,7 +6,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect
 } from 'react-router-dom';
 import AuthComponent from "./pages/Auth/AuthComponent";
 
@@ -33,9 +32,12 @@ const App = ({ user, logout }) => {
                         return redirectHome();
                     }}/>
                     <Route path={"/register"} component={AuthComponent}/>
-                    <Route render={() => {
-                            if (!isLoggedIn) {
-                                return <Redirect to={'/login'} />
+                    <Route render={
+                        ({match}) => {
+                            if (match !== '/login' && match !== '/register' && match !== '/logout') {
+                                if (!isLoggedIn) {
+                                    return redirectHome();
+                                }
                             }
                             if (role === 'client') {
                                 return <ClientRoutes user={user}/>;
@@ -43,8 +45,6 @@ const App = ({ user, logout }) => {
                                 return <InspectorRoutes user={user}/>;
                             } else if (role === 'admin') {
                                 return <AdminRoutes user={user}/>;
-                            } else {
-                                return redirectHome();
                             }
                         }
                     } />

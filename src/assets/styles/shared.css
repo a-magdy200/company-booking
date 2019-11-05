@@ -113,3 +113,11 @@
     font-size: 18px;
     margin-left: 10px;
 }
+
+/* Error */
+.error {
+    color: darkred;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
