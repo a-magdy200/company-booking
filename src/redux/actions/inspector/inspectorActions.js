@@ -5,9 +5,13 @@ import {
     INSPECTOR_GET_INSPECTION_ERROR,
     INSPECTOR_GET_INSPECTIONS,
     INSPECTOR_GET_INSPECTIONS_ERROR,
+    INSPECTOR_SCHEDULE_REPORT_UPDATE_INPUT,
     INSPECTOR_REPORT_SUBMIT,
     INSPECTOR_REPORT_SUBMIT_ERROR,
-    INSPECTOR_REPORT_UPDATE_INPUT
+    INSPECTOR_REPORT_UPDATE_INPUT,
+    INSPECTOR_SCHEDULE_REPORT,
+    INSPECTOR_SCHEDULE_REPORT_ERROR,
+    INSPECTOR_SCHEDULE_REPORT_SUCCESS
 } from "../../types";
 
 
@@ -28,9 +32,9 @@ export const get_inspections = page => {
     url = server_url + api_url.get_inspector_inspections + '/' + page;
     return (dispatch, getState) => {
         const { user } = getState();
-        const { id } = user;
+        const { id, type } = user;
         url = url.replace("%ID%", id);
-        axios.get(url)
+        axios.get(url + '/' + type)
             .then( response => dispatch(fetch_inspections_success(response.data.inspections)))
             .catch( error => dispatch(fetch_inspections_error(error)));
     }
@@ -92,4 +96,50 @@ export const submitReport = event => {
     };
 };
 
+export const updateSchedule = newValue => {
+    return {
+        type: INSPECTOR_SCHEDULE_REPORT_UPDATE_INPUT,
+        payload: {
+            name: 'schedule',
+            value: newValue
+        }
+    };
+};
+const schedule_report = () => {
+    return {
+        type: INSPECTOR_SCHEDULE_REPORT
+    };
+};
+const schedule_report_success = () => {
+    return {
+        type: INSPECTOR_SCHEDULE_REPORT_SUCCESS
+    };
+};
+const schedule_report_error = error => {
+    return {
+        type: INSPECTOR_SCHEDULE_REPORT_ERROR,
+        payload: { error }
+    };
+};
+export const scheduleReport = (event, user, inspectionID) => {
+    event.preventDefault();
+    return (dispatch, getState) => {
+        dispatch(schedule_report());
+        const { inspector_inspection_report } = getState();
+        const { schedule } = inspector_inspection_report;
+        const data = {
+            id: inspectionID,
+            schedule,
+            inspector: { ...user }
+        };
+        axios.post(server_url, data)
+            .then( ({ data }) => {
+                if (data.success) {
+                    dispatch(schedule_report_success());
+                } else {
+                    dispatch(schedule_report_error(data.error || "Failed"));
+                }
+            }).catch( error => dispatch(schedule_report_error(error)));
+    }
+};
 

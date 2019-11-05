@@ -1,14 +1,22 @@
 import {
     INSPECTOR_GET_INSPECTION,
-    INSPECTOR_GET_INSPECTION_ERROR, INSPECTOR_REPORT_SUBMIT_ERROR,
+    INSPECTOR_GET_INSPECTION_ERROR,
+    INSPECTOR_SCHEDULE_REPORT_UPDATE_INPUT,
+    INSPECTOR_REPORT_SUBMIT_ERROR,
     INSPECTOR_REPORT_SUBMIT_SUCCESS,
-    INSPECTOR_REPORT_UPDATE_INPUT
+    INSPECTOR_REPORT_UPDATE_INPUT,
+    INSPECTOR_SCHEDULE_REPORT,
+    INSPECTOR_SCHEDULE_REPORT_SUCCESS,
+    INSPECTOR_SCHEDULE_REPORT_ERROR
 } from "../../types";
 const INITIAL_STATE = {
     inspection: {},
     report: {
         comment: ''
-    }
+    },
+    schedule: '',
+    scheduleLoading: false,
+    scheduleSuccess: false
 };
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -27,6 +35,8 @@ export default (state = INITIAL_STATE, action) => {
                     [name]: value
                 }
             };
+        case INSPECTOR_SCHEDULE_REPORT_UPDATE_INPUT:
+            return {...state, schedule: action.payload.value};
         case INSPECTOR_GET_INSPECTION_ERROR:
             return {
                 ...state,
@@ -39,6 +49,16 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 error
+            };
+        case INSPECTOR_SCHEDULE_REPORT:
+            return {... state, scheduleLoading: true};
+        case INSPECTOR_SCHEDULE_REPORT_SUCCESS:
+            return { ...state, scheduleSuccess: true, schedule: '', scheduleLoading: false };
+        case INSPECTOR_SCHEDULE_REPORT_ERROR:
+            return {
+                ...state,
+                scheduleError: action.payload.error,
+                scheduleLoading: false
             };
         default:
             return {...state};

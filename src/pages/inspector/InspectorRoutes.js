@@ -5,6 +5,7 @@ import InspectionsScheduleComponent from "./Inspections-Schedule/InspectionsSche
 import HomeComponent from "./Home/HomeComponent";
 import AllInspectionsComponent from "./All-Inspections/AllInspectionsComponent";
 import NewReportComponent from "./Report/ReportComponent";
+import ProfileComponent from "../Profile/ProfileComponent";
 
 const InspectorRoutes = ({ user }) => {
     if (user.role === 'inspector') {
@@ -15,8 +16,9 @@ const InspectorRoutes = ({ user }) => {
                 <Route path={"/schedule"} component={InspectionsScheduleComponent}/>
                 <Route path={"/reports/:id"} render={({match}) => {
                     const { id } = match.params;
-                    return <NewReportComponent id={id}/>;
+                    return <NewReportComponent user={user} id={id}/>;
                 }}/>
+                <Route path={"/profile"} component={ProfileComponent} />
             </Fragment>
         );
     } else {

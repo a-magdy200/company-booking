@@ -5,7 +5,8 @@ import HomeComponent from "./Home/HomeComponent";
 import NewInspectionComponent from "./New-Inspection/NewInspectionComponent";
 import AllInspectionsComponent from "./All-Inspections/AllInspectionsComponent";
 import ViewReportsComponent from "./View-Report/ViewReportComponent";
-import { connect } from 'react-redux';
+import ProfileComponent from "../Profile/ProfileComponent";
+
 const ClientRoutes = ({ user }) => {
     if (user.role === 'client') {
         return (
@@ -17,6 +18,7 @@ const ClientRoutes = ({ user }) => {
                     const { id } = match.params;
                     return <ViewReportsComponent id={id}/>;
                 }}/>
+                <Route path={"/profile"} component={ProfileComponent} />
             </Fragment>
         );
     } else {

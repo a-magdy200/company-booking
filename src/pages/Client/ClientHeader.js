@@ -17,6 +17,9 @@ const ClientHeaderComponent = () => {
                     <li className={ pathname === '/requests-list' ? 'active' : ''}>
                         <Link to={"/requests-list"}>Requests List</Link>
                     </li>
+                    <li className={ pathname === '/profile' ? 'active' : ''}>
+                        <Link to={"/profile"}>Profile</Link>
+                    </li>
                     <li className={ pathname === '/logout' ? 'active' : ''}>
                         <Link to={"/logout"}>Logout</Link>
                     </li>

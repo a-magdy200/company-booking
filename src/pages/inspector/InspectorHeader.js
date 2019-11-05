@@ -17,6 +17,9 @@ const InspectorHeaderComponent = () => {
                     <li className={ pathname === '/inspections' ? 'active' : ''}>
                         <Link to={"/inspections"}>Inspections List</Link>
                     </li>
+                    <li className={ pathname === '/profile' ? 'active' : ''}>
+                        <Link to={"/profile"}>Profile</Link>
+                    </li>
                     <li className={ pathname === '/logout' ? 'active' : ''}>
                         <Link to={"/logout"}>Logout</Link>
                     </li>

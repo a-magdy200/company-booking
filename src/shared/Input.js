@@ -1,7 +1,7 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 
-const InputComponent = (props) => {
+const InputComponent = props => {
     const {label, name, placeholder, value, type, onChange} = props;
     return (
         <div className={"input-box"}>
