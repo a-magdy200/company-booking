@@ -121,8 +121,7 @@ const schedule_report_error = error => {
         payload: { error }
     };
 };
-export const scheduleReport = (event, user, inspectionID) => {
-    event.preventDefault();
+export const scheduleReport = (user, inspectionID) => {
     return (dispatch, getState) => {
         dispatch(schedule_report());
         const { inspector_inspection_report } = getState();

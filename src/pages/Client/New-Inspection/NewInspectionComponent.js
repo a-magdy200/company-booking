@@ -9,6 +9,7 @@ import {
     updateInput
 } from "../../../redux/actions/client/newinspectionActions";
 import 'react-datepicker/dist/react-datepicker.css';
+import {loadingComponent} from "../../../shared/functions";
 
 const NewInspectionComponent = props => {
     const { client_inspection, updateInput, sendRequest, reset, preload } = props;
@@ -36,7 +37,7 @@ const NewInspectionComponent = props => {
     ];
     return (
         <div className={"container"}>
-            { loading ? <div className={"loading"}>Loading...</div> :
+            { loading ? loadingComponent() :
                 <form action="">
                     <InputComponent
                         label={"location"}

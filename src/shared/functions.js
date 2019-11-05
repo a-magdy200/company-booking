@@ -13,4 +13,4 @@ export const renderErrors = errors => {
 export const redirectHome = () => {
     return <Redirect to={'/login'} />
 };
-
+export const loadingComponent = () => <div className={'loading'}>Loading...</div>;

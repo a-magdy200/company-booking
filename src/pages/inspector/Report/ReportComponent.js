@@ -5,19 +5,21 @@ import {
     updateInput,
     submitReport, scheduleReport, updateSchedule
 } from "../../../redux/actions/inspector/inspectorActions";
-import { redirectHome } from "../../../shared/functions";
 import {
     DetailsComponent,
     NewReportComponent
 } from "../../shared/Components";
 import ScheduleReportComponent from "./ScheduleReport/ScheduleReportComponent";
+import {loadingComponent} from "../../../shared/functions";
 
 const ReportComponent = props => {
     const { inspection } = props;
+    if (!inspection.id) {
+        props.fetchInspection();
+    }
     return <div className={'container'}>
-        <DetailsComponent title={'Inspection Details'} details={inspection} />
-        { renderReportSection(props) }
-
+        <DetailsComponent title={'Inspection Details'} details={inspection}/>
+        {renderReportSection(props)}
     </div>;
 };
 const renderReportSection = props => {
@@ -29,7 +31,7 @@ const renderReportSection = props => {
     const { inspector, status } = inspection;
     const { id } = user;
     if (scheduleLoading) {
-        return <div className={'loading'}>Loading...</div>
+        loadingComponent();
     }
     if (status === 'completed') {
         return <DetailsComponent title={"Report Details"} details={inspection.report} />;
@@ -49,11 +51,11 @@ const mapStateToProps = ({inspector_inspection_report}) => {
     return  { ...inspector_inspection_report };
 };
 const mapDispatchToProps = (dispatch, { id, user }) => {
-    dispatch(get_inspection(id));
     return {
+        fetchInspection: () => dispatch(get_inspection(id)),
         onChange: event => dispatch(updateInput(event)),
         submitReport: event => dispatch(submitReport(event, id)),
-        scheduleReport: event => dispatch(scheduleReport(event, user, id)),
+        scheduleReport: ()=> dispatch(scheduleReport(user, id)),
         onScheduleChange: value => dispatch(updateSchedule(value))
     };
 };

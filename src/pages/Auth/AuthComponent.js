@@ -6,6 +6,7 @@ import "../../assets/styles/login.css";
 import { connect } from 'react-redux';
 import { updateInput, login, signup } from "../../redux/actions/authActions";
 import {AUTH_INPUT_UPDATE} from "../../redux/types";
+import {loadingComponent} from "../../shared/functions";
 
 const AuthComponent = (props) => {
     const {
@@ -17,7 +18,7 @@ const AuthComponent = (props) => {
     } else {
         return (
             <div className={"container"}>
-                { loading ? <div className={"loading"}>Loading...</div> : renderContent(props) }
+                { loading ? loadingComponent() : renderContent(props) }
             </div>
         );
     }
