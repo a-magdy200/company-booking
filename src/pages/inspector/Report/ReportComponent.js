@@ -49,15 +49,12 @@ const mapStateToProps = ({inspector_inspection_report}) => {
     return  { ...inspector_inspection_report };
 };
 const mapDispatchToProps = (dispatch, { id, user }) => {
-    if (id) {
-        dispatch(get_inspection(id));
-        return {
-            onChange: event => dispatch(updateInput(event)),
-            submitReport: event => dispatch(submitReport(event)),
-            scheduleReport: event => dispatch(scheduleReport(event, user, id)),
-            onScheduleChange: value => dispatch(updateSchedule(value))
-        };
-    }
-    return redirectHome();
+    dispatch(get_inspection(id));
+    return {
+        onChange: event => dispatch(updateInput(event)),
+        submitReport: event => dispatch(submitReport(event, id)),
+        scheduleReport: event => dispatch(scheduleReport(event, user, id)),
+        onScheduleChange: value => dispatch(updateSchedule(value))
+    };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ReportComponent);

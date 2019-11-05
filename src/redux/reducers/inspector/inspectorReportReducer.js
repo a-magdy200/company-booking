@@ -61,6 +61,6 @@ export default (state = INITIAL_STATE, action) => {
                 scheduleLoading: false
             };
         default:
-            return {...state};
+            return {...INITIAL_STATE};
     }
 }

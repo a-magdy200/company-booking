@@ -82,16 +82,16 @@ const submit_report_error = error => {
     };
 };
 
-export const submitReport = event => {
+export const submitReport = (event, id) => {
     event.preventDefault();
     return (dispatch, getState) => {
         const { inspector_inspection_report } = getState();
-        const id = inspector_inspection_report.inspection.id;
         const { report } = inspector_inspection_report;
         axios.post(server_url + api_url.post_inspector_submit_report, {
             id,
-            ...report
-        }).then( response => dispatch(submit_report_success()))
+            report
+        })
+            .then( response => dispatch(submit_report_success()))
             .catch( error => dispatch(submit_report_error(error)))
     };
 };
