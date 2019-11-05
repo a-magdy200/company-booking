@@ -55,9 +55,13 @@ export default (state = INITIAL_STATE, action) => {
             return {...INITIAL_STATE};
         case CLIENT_NEW_INSPECTION_PRELOAD_INPUTS:
             const { client_id, email, first_name, last_name } = action.payload;
+            const types = ['Sports', 'Baby', 'Music', 'Industrial', 'Kids', 'Health', 'Home', 'Shoes', 'Tools', 'Beauty', 'Automotive', 'Outdoors', 'Clothing'];
+            const templates = ["template 1", "template 2"];
             return {
                 ...INITIAL_STATE, client_id,
                 preloaded: true,
+                template: templates[0],
+                type: types[0],
                 contactDetails: {
                     email, first_name, last_name,
                     phone: ''
