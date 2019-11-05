@@ -11,7 +11,7 @@ const ClientRoutes = ({ user }) => {
         return (
             <Fragment>
                 <Route exact path={"/"} component={HomeComponent}/>
-                <Route path={"/new-request"} component={NewInspectionComponent}/>
+                <Route path={"/new-request"} render={ () => <NewInspectionComponent user={user} />}/>
                 <Route path={"/requests-list"} component={AllInspectionsComponent}/>
                 <Route path={"/reports/:id"} render={({match}) => {
                     const { id } = match.params;
