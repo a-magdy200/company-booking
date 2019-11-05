@@ -9,5 +9,6 @@ export const api_url = {
     get_inspector_schedule_inspections: "/data/inspections_list.json",
     get_inspection: "inspection/",
     post_inspection: "inspection",
-    post_inspector_submit_report: "https://postman-echo.com/post"
+    post_inspector_submit_report: "submitReport",
+    post_inspector_schedule_report: "scheduleInspection"
 };

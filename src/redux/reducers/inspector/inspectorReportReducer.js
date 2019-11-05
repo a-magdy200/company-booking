@@ -51,7 +51,7 @@ export default (state = INITIAL_STATE, action) => {
                 error
             };
         case INSPECTOR_SCHEDULE_REPORT:
-            return {... state, scheduleLoading: true};
+            return {...state, scheduleLoading: true};
         case INSPECTOR_SCHEDULE_REPORT_SUCCESS:
             return { ...state, scheduleSuccess: true, schedule: '', scheduleLoading: false };
         case INSPECTOR_SCHEDULE_REPORT_ERROR:

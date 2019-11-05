@@ -22,17 +22,17 @@ const ReportComponent = props => {
 };
 const renderReportSection = props => {
     const {
-        inspection, onChange, submitReport,
+        inspection, onChange, submitReport, report,
         scheduleReport, schedule, onScheduleChange, scheduleLoading,
         user
     } = props;
-    const { report, inspector, status } = inspection;
+    const { inspector, status } = inspection;
     const { id } = user;
     if (scheduleLoading) {
         return <div className={'loading'}>Loading...</div>
     }
     if (status === 'completed') {
-        return <DetailsComponent title={"Report Details"} details={report} />;
+        return <DetailsComponent title={"Report Details"} details={inspection.report} />;
     } else {
         if (inspector) {
             if (inspector.id === id) {

@@ -127,12 +127,13 @@ export const scheduleReport = (event, user, inspectionID) => {
         dispatch(schedule_report());
         const { inspector_inspection_report } = getState();
         const { schedule } = inspector_inspection_report;
+        const { email, first_name, last_name, id} = user;
         const data = {
             id: inspectionID,
             schedule,
-            inspector: { ...user }
+            inspector: { email, first_name, last_name, id }
         };
-        axios.post(server_url, data)
+        axios.post(server_url + api_url.post_inspector_schedule_report, data)
             .then( ({ data }) => {
                 if (data.success) {
                     dispatch(schedule_report_success());
