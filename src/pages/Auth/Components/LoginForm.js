@@ -11,6 +11,7 @@ const LoginForm = (props) => {
             { renderErrors(errors) }
             <Button text={'Client Credentials'} handler={() => loadCredentials('client')} />
             <Button text={'Inspector Credentials'} handler={() => loadCredentials('inspector')} />
+            <Button text={'Admin Credentials'} handler={() => loadCredentials('admin')} />
             <form action="">
                 <InputComponent
                     value={email}

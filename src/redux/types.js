@@ -39,3 +39,10 @@ export const INSPECTOR_SCHEDULE_REPORT = 'inspector_schedule_report';
 export const INSPECTOR_SCHEDULE_REPORT_SUCCESS = 'inspector_schedule_report_success';
 export const INSPECTOR_SCHEDULE_REPORT_ERROR = 'inspector_schedule_report_error';
 export const INSPECTOR_SCHEDULE_REPORT_UPDATE_INPUT = 'inspector_report_schedule';
+
+
+// Admin Types
+export const GET_ADMIN_DASHBOARD = 'get_admin_dashboard';
+export const GET_ADMIN_DASHBOARD_ERROR = 'get_admin_dashboard_error';
+export const SELECT_REQUEST_ACTION = 'select_request_action';
+export const SUBMIT_REQUEST_ACTION = 'submit_request_action';

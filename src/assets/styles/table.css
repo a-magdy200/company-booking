@@ -1,0 +1,27 @@
+.table-container {
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin: 0 15px 15px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.table-container h2 {
+    margin-bottom: 10px;
+}
+.table-container table {
+    border-collapse: collapse;
+}
+.table-container table tr {
+    border: 1px solid #ccc;
+}
+.table-container table td,
+.table-container table th {
+    padding: 5px;
+}
+.table-container table td:not(:last-of-type),
+.table-container table th:not(:last-of-type) {
+    border-right: 1px solid #ccc;
+}
+.table-container table thead {
+    background-color: #eee;
+}

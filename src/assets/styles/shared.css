@@ -1,4 +1,14 @@
 /*Header*/
+.header.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.header.fixed-top + .container {
+    margin-top: 80px;
+}
 .header {
     margin-bottom:20px;
     border-bottom: 1px solid #ddd;
@@ -44,26 +54,6 @@
 .input-box textarea {
     resize: vertical;
     width: 100%;
-}
-/*Button*/
-.btn button {
-    background: white;
-    padding: 5px 15px;
-    font-size: 16px;
-    border: 1px solid #333;
-    cursor: pointer;
-    border-radius: 3px;
-}
-.btn button:hover {
-    background-color: #fefefe;
-    box-shadow:0 1px 1px #0003;
-}
-.btn button:active {
-    background-color: #fdfdfd;
-    box-shadow: 0 1px 1px #0003 inset;
-}
-.btn button:focus {
-    outline: none;
 }
 /*Loading*/
 .loading {

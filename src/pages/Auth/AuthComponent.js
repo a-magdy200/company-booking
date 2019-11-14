@@ -68,6 +68,9 @@ const mapDispatchToProps = dispatch => {
             } else if (type === 'inspector') {
                 email = 'Andre85@gmail.com';
                 password = 'DLc8eEw6O5ojAZh';
+            } else if (type === 'admin') {
+                email = 'Daija59@gmail.com';
+                password = 'H9Z8mHgnkh9Fly1';
             }
 
             dispatch({
