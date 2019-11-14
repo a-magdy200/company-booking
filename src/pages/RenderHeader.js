@@ -12,7 +12,8 @@ const RenderHeader = role => {
     }  else if (role === 'admin') {
         return <AdminHeaderComponent />;
     } else {
-        return <HeaderComponent />;
+        // return <HeaderComponent />;
+        return null;
     }
 };
 export default RenderHeader;

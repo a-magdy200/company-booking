@@ -1,3 +1,13 @@
+// Login Reducer Types
+export const LOGIN_INPUT_UPDATE = 'login_input_update';
+export const REGISTER_INPUT_UPDATE = 'register_input_update';
+export const FORGET_PASSWORD_INPUT_UPDATE = 'forget_password_input_update';
+export const SUBMIT_LOGIN_EMAIL = 'submit_login_email';
+export const SUBMIT_LOGIN_PASSWORD = 'submit_login_password';
+export const SUBMIT_REGISTER_FORM = 'submit_register_form';
+export const SUBMIT_FORGET_PASSWORD_EMAIL = 'submit_forget_password_email';
+export const CHANGE_AUTH_LAYOUT = 'change_auth_layout';
+
 // Auth Reducer Types
 export const AUTH_INPUT_UPDATE = 'auth_input_update';
 export const LOGIN = 'login';
