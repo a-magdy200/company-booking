@@ -18,12 +18,25 @@ export const select_request_action = event => {
         }
     };
 };
-export const submit_request_action = event => {
-    console.log('submit');
-    console.log(event);
+const submit_request_action_success = () => {
     return {
         type: SUBMIT_REQUEST_ACTION,
     };
+};
+export const submit_request_action = (event, id) => {
+    event.preventDefault();
+    return (dispatch, getState) => {
+        const { admin } = getState();
+        const { selectedActions } = admin;
+        let action;
+        for (let i = 0; i < selectedActions.length; i++) {
+            if (selectedActions[i].name === id) {
+                action = selectedActions[i];
+                break;
+            }
+        }
+        dispatch(submit_request_action_success());
+    }
 };
 const get_admin_dashboard_success = ({ data }) => {
     return {

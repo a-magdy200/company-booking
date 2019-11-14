@@ -1,7 +1,8 @@
 import React from 'react';
-import {Button} from "../../../../../shared";
 import { connect } from 'react-redux';
 import {select_request_action, submit_request_action} from "../../../../../redux/actions/admin/adminActions";
+import TableHeadingComponent from "./TableHeadingComponent";
+import TableBodyComponent from "./TableBodyComponent";
 const TableComponent = ({ actions, data, heading,
                             title, status, optionOnChange,
                             submitAction, selectedActions }) => {
@@ -10,24 +11,21 @@ const TableComponent = ({ actions, data, heading,
             <div className="col-12">
                 <div className="card">
                     <div className="card-header">
-                        <h3 className="card-title">{ title }</h3>
+                        <h3 className="card-title">
+                            { title } <span className={'title-counter-span'}>{ data.length }
+                        </span></h3>
                     </div>
                     {/*Card Header*/}
-                    <div className="card-body table-responsive p-0" style={{height: '300px'}}>
+                    <div className="card-body table-responsive p-0" style={{maxHeight: '300px'}}>
                         <table className="table table-head-fixed">
-                            <thead>
-                                <tr>
-                                    { heading.map( ( head, index ) => {
-                                        if (head === 'status') {
-                                            if (!status) return null;
-                                        }
-                                        return <th key={index}>{ head }</th>
-                                    }) }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { renderTable(data, actions, optionOnChange, selectedActions) }
-                            </tbody>
+                            <TableHeadingComponent heading={heading} status={status}/>
+                            <TableBodyComponent
+                                data={data}
+                                actions={actions}
+                                optionOnChange={optionOnChange}
+                                selectedActions={selectedActions}
+                                submitAction={submitAction}
+                                />
                         </table>
                     </div>
                     {/*card-body*/}
@@ -37,47 +35,10 @@ const TableComponent = ({ actions, data, heading,
         </div>
     );
 };
-
-const renderTable = ( table, actions, optionOnChange, selectedActions ) => {
-    return table.map( ( row, index ) => <tr key={index}>
-            { renderTableRow(row, actions, optionOnChange, selectedActions) }
-        </tr>
-    );
-};
-const renderTableRow = ( row, actions, optionOnChange, selectedActions ) => {
-    if (!row) {
-        return null;
-    }
-    const keys = Object.keys(row);
-    let defaultValue = '';
-    for (let i = 0; i < selectedActions.length; i++) {
-        if (selectedActions[i].name === row.id) {
-            defaultValue = selectedActions[i].value;
-            break;
-        }
-    }
-    return keys.map( ( key, index ) => {
-        if (key === 'id') return null;
-        return <td key={index}>{ key === 'action' ?
-            <form>
-                <select defaultValue={ defaultValue } onChange={ optionOnChange } name={ row.id }>
-                    <option value={''}>-</option>
-                    { actions.map( ({ text, value }, index) => <option key={index} value={value}>{ text }</option>) }
-                </select>
-                <Button
-                    text={'submit'}
-                    handler={console.log}
-                    type={'success'}
-                    disabled={defaultValue === ''}
-                />
-            </form>
-            : row[key] }</td>
-    });
-};
 const mapDispatchToProps = dispatch => {
     return {
         optionOnChange: event => dispatch(select_request_action(event)),
-        submitAction: event => dispatch(submit_request_action(event))
+        submitAction: (event, id) => dispatch(submit_request_action(event, id))
     };
 };
 const mapStateToProps = ({admin}) => {

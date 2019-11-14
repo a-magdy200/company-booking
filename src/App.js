@@ -17,6 +17,7 @@ import {logoutUser} from "./redux/actions/userActions";
 import ProfileComponent from "./pages/Profile/ProfileComponent";
 import {redirectHome} from "./shared/functions";
 import {PrivateRoute} from "./shared";
+import NewLoginComponent from "./pages/Auth/NewLoginComponent";
 const App = ({ user, logout }) => {
     const { role, isLoggedIn } = user;
     return (
@@ -26,12 +27,12 @@ const App = ({ user, logout }) => {
                 { RenderHeader(role) }
 
                 <Switch>
-                    <Route path={"/login"} component={AuthComponent}/>
+                    <Route path={"/login"} component={NewLoginComponent}/>
                     <Route path={"/logout"} render={ () => {
                         logout();
                         return redirectHome();
                     }}/>
-                    <Route path={"/register"} component={AuthComponent}/>
+                    <Route path={"/register"} component={NewLoginComponent}/>
                     <Route render={
                         ({match}) => {
                             if (match !== '/login' && match !== '/register' && match !== '/logout') {

@@ -29,6 +29,19 @@ const HomeComponent = props => {
                 actions={actions}
                 selectedActions={selectedActions}
                 title={'examination requests'} />
+            <TableComponent
+                data={requests_no_template}
+                heading={tableHeading}
+                actions={actions}
+                selectedActions={selectedActions}
+                title={'examination requests - no template'} />
+            <TableComponent
+                data={alerts}
+                heading={tableHeading}
+                actions={actions}
+                selectedActions={selectedActions}
+                status
+                title={'alerts'} />
     </div>
 };
 
