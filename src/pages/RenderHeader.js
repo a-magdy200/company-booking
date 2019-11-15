@@ -1,7 +1,6 @@
 import ClientHeaderComponent from "./Client/ClientHeader";
 import InspectorHeaderComponent from "./inspector/InspectorHeader";
 import React from "react";
-import { HeaderComponent } from "../shared";
 import AdminHeaderComponent from "./admin/AdminHeader";
 
 const RenderHeader = role => {

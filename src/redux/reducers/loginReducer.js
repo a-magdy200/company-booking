@@ -6,40 +6,81 @@ import {
     SUBMIT_LOGIN_PASSWORD,
     SUBMIT_REGISTER_FORM,
     FORGET_PASSWORD_INPUT_UPDATE,
-    SUBMIT_FORGET_PASSWORD_EMAIL,
+    SUBMIT_FORGET_PASSWORD_EMAIL, AUTH_LAYOUT_LOADING,
 
 } from "../types";
 
 const INITIAL_STATE = {
     layout: 'login',
+    loading: false,
     login: {
         email: '',
-        emailValid: false,
         password: '',
-        loading: false
+        emailValid: false,
+        staySigned: false,
     },
     register: {
         email: '',
         password: '',
         confirm_password: '',
-        loading: false
     },
     forget_password_email: ''
 };
 export default (state = INITIAL_STATE, action) => {
+    let newState = {};
     switch (action.type) {
         case CHANGE_AUTH_LAYOUT:
-            return state;
+            const { layout } = action.payload;
+            newState = { ...state };
+            if (layout === 'login') {
+                newState.login.password = '';
+            }
+            return { ...newState, layout };
         case LOGIN_INPUT_UPDATE:
-            return state;
+            const loginName = action.payload.name;
+            const loginValue = action.payload.value;
+            const { login } = state;
+            if (loginName === 'staySigned') {
+                login.staySigned = !login.staySigned;
+            } else {
+                login[loginName] = loginValue;
+            }
+            return { ...state, login: { ...login } };
         case REGISTER_INPUT_UPDATE:
-            return state;
+            const registerName = action.payload.name;
+            const registerValue = action.payload.value;
+            const { register } = state;
+            register[registerName] = registerValue;
+            return { ...state, register: { ...register } };
+        case AUTH_LAYOUT_LOADING:
+            return { ...state, loading: true };
         case SUBMIT_LOGIN_EMAIL:
-            return state;
+            newState = { ...state };
+            newState.login.emailValid = true;
+            newState.layout = 'password';
+            newState.loading = false;
+            return { ...newState };
         case SUBMIT_LOGIN_PASSWORD:
-            return state;
+            newState = { ...state };
+            newState.login = {
+                email: '',
+                password: '',
+                emailValid: false,
+                staySigned: false,
+            };
+            newState.layout = 'login';
+            newState.loading = false;
+            return { ...newState };
         case SUBMIT_REGISTER_FORM:
-            return state;
+            newState = { ...state };
+            newState.register = {
+                email: '',
+                password: '',
+                confirm_password: '',
+            };
+            newState.layout = 'login';
+            newState.loading = false;
+            return { ...newState };
         case FORGET_PASSWORD_INPUT_UPDATE:
             return state;
         case SUBMIT_FORGET_PASSWORD_EMAIL:

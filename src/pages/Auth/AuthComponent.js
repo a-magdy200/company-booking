@@ -2,7 +2,6 @@ import React from 'react'
 import { Redirect } from 'react-router-dom';
 import LoginForm from "./Components/LoginForm";
 import SignupForm from "./Components/SignupForm";
-import "../../assets/styles/login.css";
 import { connect } from 'react-redux';
 import { updateInput, login, signup } from "../../redux/actions/authActions";
 import {AUTH_INPUT_UPDATE} from "../../redux/types";

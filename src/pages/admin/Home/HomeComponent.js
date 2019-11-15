@@ -16,7 +16,6 @@ const HomeComponent = props => {
         alerts,
         requests_no_template,
         error,
-        submitAction,
         selectedActions
     } = props;
     if ( error ) {

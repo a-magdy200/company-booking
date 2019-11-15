@@ -7,12 +7,14 @@ import {
     SUBMIT_REGISTER_FORM,
     FORGET_PASSWORD_INPUT_UPDATE,
     SUBMIT_FORGET_PASSWORD_EMAIL,
-
+    AUTH_LAYOUT_LOADING
 } from "../types";
 
-export const login_input_update = () => {
+export const login_input_update = event => {
+    const { name, value } = event.target;
     return {
         type: LOGIN_INPUT_UPDATE,
+        payload: { name, value },
     };
 };
 
@@ -21,10 +23,19 @@ const submit_login_email_success = () => {
         type: SUBMIT_LOGIN_EMAIL,
     };
 };
-
-export const submit_login_email = () => {
+const auth_layout_loading = () => {
     return {
-        type: SUBMIT_LOGIN_EMAIL,
+        type: AUTH_LAYOUT_LOADING,
+    };
+};
+
+export const submit_login_email = event => {
+    event.preventDefault();
+    return (dispatch, getState) => {
+        dispatch(auth_layout_loading());
+        setTimeout( () => {
+            dispatch(submit_login_email_success());
+        }, 300);
     };
 };
 
@@ -34,15 +45,21 @@ const submit_login_password_success = () => {
     };
 };
 
-export const submit_login_password = () => {
-    return {
-        type: SUBMIT_LOGIN_PASSWORD,
+export const submit_login_password = event => {
+    event.preventDefault();
+    return (dispatch, getState) => {
+        dispatch(auth_layout_loading());
+        setTimeout( () => {
+            dispatch(submit_login_password_success());
+        }, 300);
     };
 };
 
-export const register_input_update = () => {
+export const register_input_update = event => {
+    const { name, value } = event.target;
     return {
         type: REGISTER_INPUT_UPDATE,
+        payload: { name, value },
     };
 };
 
@@ -52,9 +69,14 @@ const submit_register_success = () => {
     };
 };
 
-export const submit_register_form = () => {
-    return {
-        type: SUBMIT_REGISTER_FORM,
+export const submit_register_form = event => {
+    event.preventDefault();
+    return (dispatch, getState) => {
+        dispatch(auth_layout_loading());
+        setTimeout( () => {
+            dispatch(change_auth_layout('login'));
+            dispatch(submit_register_success());
+        }, 300);
     };
 };
 

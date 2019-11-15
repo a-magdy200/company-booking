@@ -6,25 +6,97 @@
     align-items: center;
     justify-content: center;
 }
+
 .auth-container .auth-box {
-    min-height: 300px;
-    width: 400px;
+    min-height: 260px;
+    width: 350px;
     background-color: #fff;
     padding: 30px;
     border: 1px solid #eee;
 }
+
 .auth-container .auth-box .auth-heading {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
+
 .auth-container .auth-box .auth-heading .logo {
     height: 30px;
     width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #ccc;
+    margin-right: 5px;
 }
+
 .auth-container .auth-box .auth-heading .company {
 
+}
+.auth-container .auth-box .back-to-email {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #f5f5f5;
+    padding: 8px 5px;
+    border-radius: 5px;
+    color: #777;
+}
+.auth-container .auth-box .back-to-email:hover {
+    background-color: #efefef;
+}
+.auth-container .auth-box .back-to-email:active {
+    background-color: #e5e5e5;
+}
+
+.auth-container .auth-box .notes {
+    margin: 10px -30px 0;
+    padding: 10px 30px 0;
+    border-top: 2px solid #ccc;
+}
+.auth-container .auth-box .notes ul {
+    margin-bottom: 0;
+    list-style: disc;
+    padding-left: 12px;
+}
+.auth-container .auth-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container .auth-box form h2 {
+    margin-bottom: 20px;
+}
+
+.auth-container .auth-box input {
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    margin-bottom: 15px;
+}
+
+.auth-container .auth-box .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.auth-container .auth-box .checkbox-container * {
+    margin-bottom: 0;
+}
+.auth-container .auth-box form .dummy-link {
+    color: #4068e0;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.auth-container .auth-box form .dummy-link:hover {
+    color: #2b50c1;
+}
+
+.auth-container .auth-box form .dummy-link:active {
+    color: #1a3ead;
+}
+
+.auth-container .button-container {
+    width: 100px;
+    align-self: flex-end;
 }

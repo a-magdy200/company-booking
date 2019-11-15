@@ -7,7 +7,6 @@ import {
     Switch,
     Route,
 } from 'react-router-dom';
-import AuthComponent from "./pages/Auth/AuthComponent";
 
 import ClientRoutes from "./pages/Client/ClientRoutes";
 import AdminRoutes from "./pages/admin/AdminRoutes";
