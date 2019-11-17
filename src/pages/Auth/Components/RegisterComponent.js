@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {register_input_update, submit_register_form} from "../../redux/actions/loginActions";
-import {Button} from "../../shared";
+import {register_input_update, submit_register_form} from "../../../redux/actions/loginActions";
+import {Button} from "../../../shared";
 
 const RegisterComponent = ({ updateInput, email, password, confirm_password, loading, submitForm }) => {
 

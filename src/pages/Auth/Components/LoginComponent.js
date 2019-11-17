@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {change_auth_layout, login_input_update, submit_login_email} from "../../redux/actions/loginActions";
-import {Button} from "../../shared";
+import {change_auth_layout, login_input_update, submit_login_email} from "../../../redux/actions/loginActions";
+import {Button} from "../../../shared";
 
 const LoginComponent = ({
                             updateInput, submitEmail, changeLayout,
@@ -24,6 +24,7 @@ const LoginComponent = ({
             <Button
                 type={'primary btn-flat'}
                 text={'next'}
+                disabled={email === ''}
                 handler={ submitEmail } />
         </span>
     </form>;

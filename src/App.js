@@ -17,21 +17,24 @@ import ProfileComponent from "./pages/Profile/ProfileComponent";
 import {redirectHome} from "./shared/functions";
 import {PrivateRoute} from "./shared";
 import NewLoginComponent from "./pages/Auth/NewLoginComponent";
+import AuthComponent from "./pages/Auth/AuthComponent";
+import SideBarComponent from "./pages/shared/SideBar";
 const App = ({ user, logout }) => {
     const { role, isLoggedIn } = user;
     return (
         <div className="App">
+            <SideBarComponent/>
             <Router>
 
                 { RenderHeader(role) }
 
                 <Switch>
-                    <Route path={"/login"} component={NewLoginComponent}/>
+                    <Route path={"/login"} component={AuthComponent}/>
                     <Route path={"/logout"} render={ () => {
                         logout();
                         return redirectHome();
                     }}/>
-                    <Route path={"/register"} component={NewLoginComponent}/>
+                    <Route path={"/register"} component={AuthComponent}/>
                     <Route render={
                         ({match}) => {
                             if (match !== '/login' && match !== '/register' && match !== '/logout') {

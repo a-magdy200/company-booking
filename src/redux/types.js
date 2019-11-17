@@ -8,6 +8,7 @@ export const SUBMIT_REGISTER_FORM = 'submit_register_form';
 export const SUBMIT_FORGET_PASSWORD_EMAIL = 'submit_forget_password_email';
 export const CHANGE_AUTH_LAYOUT = 'change_auth_layout';
 export const AUTH_LAYOUT_LOADING = 'auth_layout_loading';
+export const AUTH_ERROR = 'auth_error';
 
 // Auth Reducer Types
 export const AUTH_INPUT_UPDATE = 'auth_input_update';

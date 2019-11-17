@@ -7,9 +7,16 @@ import {
     SUBMIT_REGISTER_FORM,
     FORGET_PASSWORD_INPUT_UPDATE,
     SUBMIT_FORGET_PASSWORD_EMAIL,
-    AUTH_LAYOUT_LOADING
+    AUTH_LAYOUT_LOADING,
+    AUTH_ERROR
 } from "../types";
 
+const auth_error = error => {
+    return {
+        type: AUTH_ERROR,
+        payload: { error }
+    };
+};
 export const login_input_update = event => {
     const { name, value } = event.target;
     return {

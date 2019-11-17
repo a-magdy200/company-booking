@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {change_auth_layout, login_input_update, submit_login_password} from "../../redux/actions/loginActions";
-import {Button} from "../../shared";
+import {change_auth_layout, login_input_update, submit_login_password} from "../../../redux/actions/loginActions";
+import {Button} from "../../../shared";
 const PasswordComponent = ({ updateInput, staySigned, email, password, submitPassword, changeLayout, loading }) => {
 
     if (loading) return <div className={'loading'}>Loading...</div>;

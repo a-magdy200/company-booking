@@ -1,5 +1,5 @@
 .auth-container {
-    background-image: url('../images/bg.jpg');
+    /*background-image: url('../images/bg.jpg');*/
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -34,6 +34,14 @@
 .auth-container .auth-box .auth-heading .company {
 
 }
+
+.auth-container .auth-error {
+    padding: 5px;
+    color: darkred;
+    background-color: #f9cdcd80;
+    font-weight: bold;
+}
+
 .auth-container .auth-box .back-to-email {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
