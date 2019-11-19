@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 const InspectionsListRowComponent = (props) => {
-    const { inspection } = props;
+    const { inspection, user } = props;
     const { type, date, dueDate, status, id, completed } = inspection;
-    const user = 'b';
+    const { role } = user;
     return (
         <div className={"inspection-row"}>
             <ul>
@@ -13,12 +13,12 @@ const InspectionsListRowComponent = (props) => {
                 <li className={'status ' + status}>{status}</li>
                 <li>
                     {
-                        user === 'a' ?
+                        role === 'client' ?
                             (
                             completed ? <Link to={'/reports/' + id}>View Report</Link> : <span>Ongoing</span>
                             ) :
                             (
-                                user === 'b' ?
+                                (role === 'inspector' || role === 'admin') ?
                                     <Link to={'/reports/' + id}>View Details</Link>:<span>-</span>
                             )
                     }

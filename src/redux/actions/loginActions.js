@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
     CHANGE_AUTH_LAYOUT,
     LOGIN_INPUT_UPDATE,
@@ -10,7 +11,13 @@ import {
     AUTH_LAYOUT_LOADING,
     AUTH_ERROR
 } from "../types";
-
+import {api_url, server_url} from "../../shared/api_url";
+import {setUser} from "./userActions";
+const headersConfig = {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+};
 const auth_error = error => {
     return {
         type: AUTH_ERROR,
@@ -39,10 +46,25 @@ const auth_layout_loading = () => {
 export const submit_login_email = event => {
     event.preventDefault();
     return (dispatch, getState) => {
+        const { login } = getState();
+
         dispatch(auth_layout_loading());
-        setTimeout( () => {
-            dispatch(submit_login_email_success());
-        }, 300);
+            axios.post(server_url + api_url.check_email, {
+                email: login.login.email
+            }, headersConfig)
+                .then( ({ data }) => {
+                    const { emailExists } = data;
+                    if ( emailExists ) {
+                        dispatch(submit_login_email_success());
+                    } else {
+                        dispatch(auth_error("Email Does Not Exist."));
+                    }
+
+                })
+                .catch( err => {
+                    console.log(err);
+                    dispatch(auth_error(err));
+                });
     };
 };
 
@@ -55,10 +77,22 @@ const submit_login_password_success = () => {
 export const submit_login_password = event => {
     event.preventDefault();
     return (dispatch, getState) => {
+        const { login } = getState();
+        const { email, password } = login.login;
         dispatch(auth_layout_loading());
-        setTimeout( () => {
-            dispatch(submit_login_password_success());
-        }, 300);
+        axios.post(server_url + api_url.check_password, {
+            email, password
+        }, headersConfig)
+            .then( ({ data }) => {
+                const { error } = data;
+                if (error) {
+                    return dispatch(auth_error(error));
+                } else {
+                    dispatch(submit_login_password_success());
+                    const { user, token } = data;
+                    dispatch(setUser(user, token));
+                }
+            }).catch( error => dispatch(auth_error(error)));
     };
 };
 
@@ -79,11 +113,29 @@ const submit_register_success = () => {
 export const submit_register_form = event => {
     event.preventDefault();
     return (dispatch, getState) => {
+        const { login } = getState();
+        const { register } = login;
+        const { email, password, confirm_password } = register;
         dispatch(auth_layout_loading());
-        setTimeout( () => {
-            dispatch(change_auth_layout('login'));
-            dispatch(submit_register_success());
-        }, 300);
+        if (password !== confirm_password) {
+            dispatch(auth_error("Password doesn't match."));
+            return null;
+        }
+        axios.post(server_url + api_url.signup, {
+            email, password
+        }).then( ({ data }) => {
+            console.log(data);
+            const { error } = data;
+            if ( error ) {
+                dispatch(auth_error(error));
+            } else {
+                const { user, token } = data;
+                dispatch(setUser(user, token));
+                dispatch(submit_register_success());
+            }
+        }).catch( error => {
+            dispatch(auth_error(error));
+        });
     };
 };
 

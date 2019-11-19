@@ -4,6 +4,9 @@ import React from "react";
 
 const DetailsComponent = ({details, title}) => {
     const keys = Object.keys(details);
+    console.log(keys);
+    console.log(details);
+    console.log(details['email']);
     return <Card>
         <h2 className={'card-heading'}>{title}</h2>
         {

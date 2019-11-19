@@ -1,3 +1,22 @@
+/* AdminLTE Header */
+.main-header .navbar-nav .nav-item .nav-link span {
+    position: static;
+    right: 0;
+    top: 0;
+    margin-left: 5px;
+    font-size:12px;
+    padding: 3px 5px;
+}
+.content-wrapper {
+    padding-top: 20px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 43px);
+    min-height: calc(100vh - 43px);
+}
+.main-sidebar {
+    max-height:100vh;
+    overflow-y: scroll;
+}
 /*Header*/
 .header.fixed-top {
     position: fixed;

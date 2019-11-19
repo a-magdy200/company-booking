@@ -28,7 +28,18 @@ const TableCellComponent = ( { row, actions, optionOnChange, selectedActions, su
                     disabled={defaultValue === ''}
                 />
             </form>
-            : row[key] }</td>
+            : renderCell(row[key]) }</td>
     });
 };
+const isValidDate = date => {
+    return date instanceof Date && !isNaN(date);
+};
+const renderCell = cell => {
+    const date = new Date(cell);
+    if (isValidDate(date)) {
+        return date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+    } else {
+        return cell;
+    }
+}
 export default TableCellComponent;

@@ -8,7 +8,8 @@ const ProfileComponent = ({ user }) => {
     </div>
 };
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = ({ user }) => {
+    console.log(user);
     const { first_name, last_name, email, role, id } = user;
     return { user: { id, first_name, last_name, email, role } };
 };

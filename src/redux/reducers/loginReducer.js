@@ -15,8 +15,8 @@ const INITIAL_STATE = {
     layout: 'login',
     loading: false,
     login: {
-        email: '',
-        password: '',
+        email: 'Nella_Becker@gmail.com',
+        password: 'HW5u2Y3Km9vr9wL',
         emailValid: false,
         staySigned: false,
     },
@@ -93,7 +93,7 @@ export default (state = INITIAL_STATE, action) => {
             return state;
         case AUTH_ERROR:
             const { error } = action.payload;
-            return {...state, error};
+            return {...state, error, loading: false};
         default:
             return state;
     }

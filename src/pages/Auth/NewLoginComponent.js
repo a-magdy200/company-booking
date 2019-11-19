@@ -4,8 +4,10 @@ import LoginComponent from "./Components/LoginComponent";
 import PasswordComponent from "./Components/PasswordComponent";
 import "../../assets/styles/login.css";
 import RegisterComponent from "./Components/RegisterComponent";
+import { Redirect } from 'react-router-dom';
 
-const NewLoginComponent = ({ layout, emailValid, error }) => {
+const NewLoginComponent = ({ layout, emailValid, error, isLoggedIn }) => {
+    if ( isLoggedIn ) return <Redirect to={'/'} />;
     return <div className={'auth-container'}>
         <div className="auth-box">
             <div className="auth-heading">
@@ -41,11 +43,12 @@ const renderLayout = ( layout, emailValid) => {
             return <LoginComponent/>;
     }
 };
-const mapStateToProps = ({ login }) => {
+const mapStateToProps = ({ login, user }) => {
     const { layout, error } = login;
     return {
         layout, error,
-        emailValid: login.login.emailValid
+        emailValid: login.login.emailValid,
+        isLoggedIn: user.isLoggedIn
     };
 };
 const mapDispatchToProps = dispatch => {

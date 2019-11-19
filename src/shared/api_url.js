@@ -1,8 +1,9 @@
 export const server_url = 'http://localhost:5000/';
 export const heroku_server_url = 'https://company-booking-server.herokuapp.com/';
 export const api_url = {
-    login_url: "login",
-    signup_url: "signup",
+    check_email: "check-email",
+    check_password: "check-password",
+    signup: "signup",
     get_client_inspections: "client/%ID%/inspections-list",
     get_inspector_inspections: "inspector/%ID%/inspections-list",
     get_inspection: "inspection/",
