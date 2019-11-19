@@ -18,13 +18,13 @@ import {redirectHome} from "./shared/functions";
 import {PrivateRoute} from "./shared";
 import NewLoginComponent from "./pages/Auth/NewLoginComponent";
 import AuthComponent from "./pages/Auth/AuthComponent";
-import SideBarComponent from "./pages/shared/SideBar";
+import SideBarComponent from "./pages/shared/SideBar/SideBar";
 const App = ({ user, logout }) => {
     const { role, isLoggedIn } = user;
     return (
         <div className="App">
-            <SideBarComponent/>
             <Router>
+            { isLoggedIn ? <SideBarComponent/> : null }
 
                 { RenderHeader(role) }
 
