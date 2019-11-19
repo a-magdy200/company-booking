@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserImageComponent from "./components/UserImage";
 
 const SideBarComponent = ({ user }) => {
+    const { first_name, last_name, profile_picture } = user;
     return <aside className="main-sidebar sidebar-dark-primary elevation-4">
             <a href="/" className="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3"
@@ -11,7 +12,7 @@ const SideBarComponent = ({ user }) => {
             </a>
 
             <div className="sidebar">
-                <UserImageComponent picture={"dist/img/user2-160x160.jpg"} name={"Alexander Pierce"} />
+                <UserImageComponent picture={profile_picture} name={first_name + ' ' + last_name} />
                 <nav className="mt-2">
                     <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
